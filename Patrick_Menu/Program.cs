@@ -19,7 +19,7 @@ namespace Patrick_Menu
                     .PageSize(10)
                     .MoreChoicesText("[grey](Ryk op og ned for at se flere programmer)[/]")
                     .AddChoices(new[] {
-                        "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet"
+                        "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras"
                     }));
 
             // Skriv til console hvad du har valgt!
@@ -46,6 +46,11 @@ namespace Patrick_Menu
                 case "Terningkastet":
                     Terningkastet terningkastet = new Terningkastet();
                     terningkastet.runApp();
+                    break;
+
+                case "Pythagoras":
+                     Pythagoras pythagoras = new Pythagoras();
+                    pythagoras.runApp();
                     break;
             }
             Console.ReadLine();
