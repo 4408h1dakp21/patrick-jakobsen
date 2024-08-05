@@ -29,11 +29,11 @@ Beskrivelse: Dette program giver brugeren mulighed for at indtaste et celsius ta
 Beskrivelse: Dette program giver bruger mulighed for at indtaste et beløb i DKK, som derefter bliver udregnet til USD, GBP, EUR og SEK.
 
 #### OBS! Dette er værdiger som bliver brugt i applicationen:
-Priser fra den 05/08/24
-USD = 6.80; // US Dollars
-GBP = 8.71; // Britiske Pund
-EUR = 7.46; // Euro
-SEK = 0.64; // Svenske kroner
+##### Priser fra den 05/08/24
+- USD = 6.80; // US Dollars
+- GBP = 8.71; // Britiske Pund
+- EUR = 7.46; // Euro
+- SEK = 0.64; // Svenske kroner
 
 ### Applikation 3: Rumfanget
 
