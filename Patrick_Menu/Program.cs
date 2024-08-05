@@ -8,7 +8,7 @@ namespace Patrick_Menu
         {
             
             AnsiConsole.Write(
-            new FigletText("Min Menu")
+            new FigletText("Programmer")
              .LeftJustified()
              .Color(Color.Green));
 
@@ -19,7 +19,7 @@ namespace Patrick_Menu
                     .PageSize(10)
                     .MoreChoicesText("[grey](Ryk op og ned for at se flere programmer)[/]")
                     .AddChoices(new[] {
-                        "Celciusomregner", "Valutaomregner", "Rumfanget"
+                        "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet"
                     }));
 
             // Skriv til console hvad du har valgt!
@@ -41,6 +41,11 @@ namespace Patrick_Menu
                 case "Rumfanget":
                     Rumfanget rumfanget = new Rumfanget();
                     rumfanget.runApp();
+                    break;
+
+                case "Terningkastet":
+                    Terningkastet terningkastet = new Terningkastet();
+                    terningkastet.runApp();
                     break;
             }
             Console.ReadLine();
