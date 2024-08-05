@@ -10,29 +10,31 @@ namespace Patrick_Menu
     {
         public void runApp()
         {
+               // Værdiger som kan udregnes!
+            double USD = 6.80; // US Dollars
+            double GBP = 8.71; // Britiske Pund
+            double EUR = 7.46; // Euro
+            double SEK = 0.64; // Svenske kroner
+
             bool continueConversion = true;
 
             while (continueConversion)
             {
-                Console.Clear(); // clear console
-                Console.WriteLine("Indtast en værdig i celsius");  // Skriv til console
+                Console.Clear();
+                Console.WriteLine("Indtast beløb i DKK, som du vil omregne:");
 
-                // Håndter brugerinput og tjekker om det er et gyldigt tal og laver udregningen
+                // Håndter brugerinput og tjekker om det er et gyldigt tal og laver omregningen
                 try
                 {
-                    double celsius = double.Parse(Console.ReadLine());
+                    double DKK = double.Parse(Console.ReadLine());
 
-                    // Omregning til Reamur
-                    double reamur = celsius * 0.8;
+                    Console.WriteLine($"Beløbet i DKK: {DKK}");
+                    Console.WriteLine($"USD: {DKK / USD:F2}");
+                    Console.WriteLine($"GBP: {DKK / GBP:F2}");
+                    Console.WriteLine($"EUR: {DKK / EUR:F2}");
+                    Console.WriteLine($"SEK: {DKK / SEK:F2}");
 
-                    // Omregning til Fahrenheit
-                    double fahrenheit = celsius * 1.8 + 32;
-
-                    // Skriv til console
-                    Console.WriteLine($"Temperatur i Reamur: {reamur}");
-                    Console.WriteLine($"Temperatur i Fahrenheit: {fahrenheit}");
-
-                    Console.WriteLine("Vil du foretage en ny udregning? (ja/nej)");
+                    Console.WriteLine("Vil du foretage en ny omregning? (ja/nej)");
                     string response = Console.ReadLine().ToLower();
 
                     if (response != "ja")
@@ -51,7 +53,8 @@ namespace Patrick_Menu
             }
 
             //Farvel besked!
-            Console.WriteLine("Tak for at du brugte celsius omregner. Farvel!");
+
+            Console.WriteLine("Tak for at du brugte valutaomregner. Farvel!");
         }
     }
 }
