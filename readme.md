@@ -1,4 +1,4 @@
-# Skoleprojekt: Små Applikationer
+# H1 - Grundlæggende programmering
 
 En samling af små applikationer udviklet som en del af skoleprojekter.
 
