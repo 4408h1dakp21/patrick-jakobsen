@@ -1,6 +1,6 @@
-# H1 - Grundlæggende programmering
+# Grundlæggende Programmering
 
-En samling af små applikationer udviklet som en del af skoleprojekter.
+En samling af små applikationer udviklet som en del af H1 - Grundlæggende Programmering.
 
 ## Indholdsfortegnelse
 
@@ -8,44 +8,38 @@ En samling af små applikationer udviklet som en del af skoleprojekter.
 - [Applikationer](#applikationer)
 - [Installation](#installation)
 - [Pakker](#pakker)
-- [Kommende Diagrammer](#kommende-diagrammer)
-- [Bidrag](#bidrag)
-- [Licens](#licens)
 
 ## Introduktion
 
-Dette projekt indeholder flere små applikationer udviklet som en del af skoleprojekter. Hver applikation har et specifikt formål og demonstrerer forskellige aspekter af programmering i C#.
-
-Dette projekt indholder flere små programmer, som jeg har udarbejdet under mit H1 forløb. Hver applikation har et specifikt formål og demonstrerer forskellige aspekter af programmering i C#.
+Dette projekt omfatter en række små applikationer, som jeg har udviklet under mit H1-forløb i grundlæggende programmering. Hver applikation har et specifikt formål og illustrerer forskellige aspekter af programmering i C#.
 
 ## Applikationer
 
 ### Applikation 1: Celciusomregner
 
-Beskrivelse: Dette program giver brugeren mulighed for at indtaste et celsius tal som, de gerne ville omregne til reamur og fahrenheit
+**Beskrivelse:** Dette program giver brugeren mulighed for at indtaste en temperatur i Celsius og få den omregnet til Reamur og Fahrenheit.
 
 ### Applikation 2: Valutaomregner
 
-Beskrivelse: Dette program giver bruger mulighed for at indtaste et beløb i DKK, som derefter bliver udregnet til USD, GBP, EUR og SEK.
+**Beskrivelse:** Dette program giver brugeren mulighed for at indtaste et beløb i DKK, som derefter bliver konverteret til USD, GBP, EUR og SEK.
 
-#### OBS! Dette er værdiger som bliver brugt i applicationen:
-##### Priser fra den 05/08/24
-- USD = 6.80; // US Dollars
-- GBP = 8.71; // Britiske Pund
-- EUR = 7.46; // Euro
-- SEK = 0.64; // Svenske kroner
+**Bemærk:** Værdierne, der anvendes i applikationen, er som følger (pr. 05/08/2024):
+- USD = 6.80 (US Dollars)
+- GBP = 8.71 (Britiske Pund)
+- EUR = 7.46 (Euro)
+- SEK = 0.64 (Svenske kroner)
 
 ### Applikation 3: Rumfanget
 
-Beskrivelse: Dette program giver brugerne mulighed for at indtaste højde, bredde og længde for at udregne rumfanget.
+**Beskrivelse:** Dette program giver brugeren mulighed for at indtaste højde, bredde og længde for at beregne rumfanget.
 
 ### Applikation 4: Terningkastet
 
-Beskrivelse: Dette program bruger C# "random" for at kunne slå et random tal fra 1 til 6 og udskrive det til console for at vise hvad brugeren har slået!
+**Beskrivelse:** Dette program bruger C#'s `Random`-klasse til at kaste en terning, der genererer et tilfældigt tal mellem 1 og 6, og viser resultatet i konsollen.
 
 ### Applikation 5: Pythagoras
 
-Beskrivelse: Dette program sprøger brugeren om at indtaste 2 tal, som skal bruges til at udregne Pythagoras via furmlen: (a² + b² = c²)
+**Beskrivelse:** Dette program beder brugeren om at indtaste to tal, som anvendes til at beregne hypotenusen i en retvinklet trekant ved hjælp af Pythagoras' sætning: \(a^2 + b^2 = c^2\).
 
 ## Installation
 
@@ -77,5 +71,5 @@ Følg disse trin for at installere og køre projektet:
 
 Projektet bruger følgende NuGet-pakker:
 
-- [pectre.Console](https://www.nuget.org/packages/Spectre.Console/0.49.2-preview.0.14) - A library that makes it easier to create beautiful console applications
-- [Spectre.Console.Cli](https://www.nuget.org/packages/Spectre.Console.Cli/0.49.2-preview.0.14) - A library that makes it easier to create beautiful console applications.
+- [Spectre.Console](https://www.nuget.org/packages/Spectre.Console/0.49.2-preview.0.14) - En bibliotek til nemmere oprettelse af flotte konsolapplikationer.
+- [Spectre.Console.Cli](https://www.nuget.org/packages/Spectre.Console.Cli/0.49.2-preview.0.14) - En bibliotek til nemmere oprettelse af CLI-applikationer med flotte konsolgrænseflader.
