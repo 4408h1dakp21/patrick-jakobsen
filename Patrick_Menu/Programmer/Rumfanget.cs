@@ -8,7 +8,7 @@ namespace Patrick_Menu.Programmer
 {
     internal class Rumfanget
     {
-        public void runApp()
+        public static void runApp()
         {
             // Variabler til a gemme værdigerne
             bool continueConversion = true;

@@ -14,6 +14,8 @@ namespace Patrick_Menu.Menu
              .LeftJustified()
              .Color(Color.Green));
 
+
+
             // sprøg for hvilket program brugeren ville køre!
             var app = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()

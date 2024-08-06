@@ -28,7 +28,7 @@ namespace Patrick_Menu.Programmer
         }
 
 
-        public void runApp()
+        public static void runApp()
         {
             // Ask for the user's favorite fruit
             var gameMode = AnsiConsole.Prompt(

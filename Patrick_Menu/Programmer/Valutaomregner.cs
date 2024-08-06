@@ -8,7 +8,7 @@ namespace Patrick_Menu.Programmer
 {
     internal class Valutaomregner
     {
-        public void runApp()
+        public static void runApp()
         {
             // Værdiger som kan udregnes!
             double USD = 6.80; // US Dollars

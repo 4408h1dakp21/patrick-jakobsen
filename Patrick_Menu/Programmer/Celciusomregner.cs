@@ -9,7 +9,7 @@ namespace Patrick_Menu.Programmer
     public class Celciusomregner
     {
 
-        public void runApp()
+        public static void runApp()
         {
             bool continueConversion = true;
 

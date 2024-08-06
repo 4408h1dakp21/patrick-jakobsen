@@ -10,7 +10,7 @@ namespace Patrick_Menu.Programmer
 {
     internal class Terningkastet
     {
-        public void runApp()
+        public static void runApp()
         {
 
             /* Man kan godt gøre det på den måde her, 

@@ -8,7 +8,7 @@ namespace Patrick_Menu.Programmer
 {
     internal class Pythagoras
     {
-        public void runApp()
+        public static void runApp()
         {
             double GetValidNumber(string prompt)
             {

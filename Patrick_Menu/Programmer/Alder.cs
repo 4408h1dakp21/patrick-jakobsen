@@ -11,7 +11,7 @@ namespace Patrick_Menu.Programmer
     internal class Alder
     {
         // Function til at køre programmet ind 
-        public void runApp()
+        public static void runApp()
         {
             // Værdigere til at få navn og alder
             string name = AnsiConsole.Ask<string>("Hvad er dit [green]navn[/]?");

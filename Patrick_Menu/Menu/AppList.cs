@@ -13,39 +13,34 @@ namespace Patrick_Menu.Menu
             switch (AppList)
             {
                 case "Celciusomregner":
-                    Celciusomregner celciusomregner = new Celciusomregner();
-                    celciusomregner.runApp();
+                    Celciusomregner.runApp();
                     break;
 
                 case "Valutaomregner":
-                    Valutaomregner valutaomregner = new Valutaomregner();
-                    valutaomregner.runApp();
+                    Valutaomregner.runApp();
+      
                     break;
 
 
                 case "Rumfanget":
-                    Rumfanget rumfanget = new Rumfanget();
-                    rumfanget.runApp();
+                    Rumfanget.runApp();
+       
                     break;
 
                 case "Terningkastet":
-                    Terningkastet terningkastet = new Terningkastet();
-                    terningkastet.runApp();
+                    Terningkastet.runApp();
                     break;
 
                 case "Pythagoras":
-                    Pythagoras pythagoras = new Pythagoras();
-                    pythagoras.runApp();
+                    Pythagoras.runApp();
                     break;
 
                 case "Alder":
-                    Alder alder = new Alder();
-                    alder.runApp();
+                    Alder.runApp();
                     break;
 
                 case "Guess Number":
-                    GuessNumber guessNumber = new GuessNumber();
-                    guessNumber.runApp();
+                    GuessNumber.runApp();
                     break;
 
                 case "Exit":
