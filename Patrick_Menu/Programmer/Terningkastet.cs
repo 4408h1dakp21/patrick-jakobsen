@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Spectre.Console;
 
-namespace Patrick_Menu
+namespace Patrick_Menu.Programmer
 {
     internal class Terningkastet
     {
@@ -23,7 +23,7 @@ namespace Patrick_Menu
             static void ifStatement()
             {
                 bool throwAgain = true;
-             
+
 
                 // hvis man gerne ville slå igen
                 while (throwAgain)
@@ -78,7 +78,7 @@ namespace Patrick_Menu
             static void switchCase()
             {
                 bool throwAgain = true;
-             
+
                 while (throwAgain)
                 {
                     Random random = new Random();
@@ -130,16 +130,16 @@ namespace Patrick_Menu
             }
 
 
-        
 
 
-        var choise = AnsiConsole.Prompt(
-        new SelectionPrompt<string>()
-            .Title("Ville du bruge [green]if/else[/] eller [blue]Switch Case[/]?")
-            .PageSize(3)
-            .AddChoices(new[] {
+
+            var choise = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Ville du bruge [green]if/else[/] eller [blue]Switch Case[/]?")
+                .PageSize(3)
+                .AddChoices(new[] {
                     "if/else", "Switch Case",
-            }));
+                }));
 
             switch (choise)
             {
@@ -148,7 +148,7 @@ namespace Patrick_Menu
                     break;
 
                 case "Switch Case":
-                    switchCase(); 
+                    switchCase();
                     break;
             }
         }

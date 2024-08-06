@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patrick_Menu
+namespace Patrick_Menu.Programmer
 {
     internal class Pythagoras
     {
@@ -31,7 +31,7 @@ namespace Patrick_Menu
             double b = GetValidNumber("Indtast det andet tal (b): ");
 
             // Beregn hypotenusen
-            double c = Math.Sqrt((a * a) + (b * b));
+            double c = Math.Sqrt(a * a + b * b);
 
             // Udskriv resultatet
             Console.WriteLine($"\nHypotenusen (c) er: {c:F2}");

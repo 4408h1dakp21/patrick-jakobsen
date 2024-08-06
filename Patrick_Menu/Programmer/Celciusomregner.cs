@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patrick_Menu
+namespace Patrick_Menu.Programmer
 {
     public class Celciusomregner
     {

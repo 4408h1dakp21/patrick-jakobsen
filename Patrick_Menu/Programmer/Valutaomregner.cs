@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patrick_Menu
+namespace Patrick_Menu.Programmer
 {
     internal class Valutaomregner
     {
         public void runApp()
         {
-               // Værdiger som kan udregnes!
+            // Værdiger som kan udregnes!
             double USD = 6.80; // US Dollars
             double GBP = 8.71; // Britiske Pund
             double EUR = 7.46; // Euro
