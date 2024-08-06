@@ -15,18 +15,12 @@ namespace Patrick_Menu.Menu
                 case "Celciusomregner":
                     Celciusomregner.runApp();
                     break;
-
                 case "Valutaomregner":
                     Valutaomregner.runApp();
-      
                     break;
-
-
                 case "Rumfanget":
                     Rumfanget.runApp();
-       
                     break;
-
                 case "Terningkastet":
                     Terningkastet.runApp();
                     break;
@@ -34,15 +28,12 @@ namespace Patrick_Menu.Menu
                 case "Pythagoras":
                     Pythagoras.runApp();
                     break;
-
                 case "Alder":
                     Alder.runApp();
                     break;
-
                 case "Guess Number":
                     GuessNumber.runApp();
                     break;
-
                 case "Exit":
                     System.Environment.Exit(1);
                     break;

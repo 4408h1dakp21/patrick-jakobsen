@@ -1,5 +1,5 @@
-﻿using Patrick_Menu.Programmer;
-using Spectre.Console;
+﻿using Spectre.Console;
+using System.IO;
 
 namespace Patrick_Menu.Menu
 {
@@ -13,8 +13,6 @@ namespace Patrick_Menu.Menu
             new FigletText("Programmer")
              .LeftJustified()
              .Color(Color.Green));
-
-
 
             // sprøg for hvilket program brugeren ville køre!
             var app = AnsiConsole.Prompt(

@@ -1,87 +1,100 @@
 ﻿using Spectre.Console;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Patrick_Menu.Programmer
 {
-    internal class GuessNumber
+    internal class GætNummer
     {
-
-
-        static void gameModeLet()
+        static void spilModeLet()
         {
-            Console.WriteLine("Let");
+            Spil(1, 5, int.MaxValue); // Ubegrænsede forsøg
         }
 
-        static void gameModeNormal()
+        static void spilModeNormal()
         {
-            Console.WriteLine("Normal");
+            Spil(1, 10, int.MaxValue); // Ubegrænsede forsøg
         }
 
-
-        static void gameModeHardcore()
+        static void spilModeHardcore()
         {
-            Console.WriteLine("hardcore");
+            Spil(1, 10, 3); // 3 forsøg
         }
 
-
-        public static void runApp()
+        static void Spil(int min, int max, int maxForsøg)
         {
-            // Ask for the user's favorite fruit
-            var gameMode = AnsiConsole.Prompt(
+            Random tilfældig = new Random();
+            int hemmeligtNummer = tilfældig.Next(min, max + 1);
+            int forsøg = 0;
+            bool erGættet = false;
+
+            AnsiConsole.MarkupLine($"Gæt nummeret mellem {min} og {max}!");
+
+            while (forsøg < maxForsøg)
+            {
+                forsøg++;
+                int gæt = AnsiConsole.Ask<int>("Indtast dit gæt:");
+
+                if (gæt < hemmeligtNummer)
+                {
+                    AnsiConsole.MarkupLine("[yellow]For lavt! Prøv igen.[/]");
+                }
+                else if (gæt > hemmeligtNummer)
+                {
+                    AnsiConsole.MarkupLine("[yellow]For højt! Prøv igen.[/]");
+                }
+                else
+                {
+                    erGættet = true;
+                    break;
+                }
+            }
+
+            if (erGættet)
+            {
+                AnsiConsole.MarkupLine($"[green]Tillykke! Du gættede nummeret i {forsøg} forsøg.[/]");
+            }
+            else
+            {
+                AnsiConsole.MarkupLine($"[red]Du har brugt alle {maxForsøg} forsøg. Det hemmelige nummer var {hemmeligtNummer}.[/]");
+                if (maxForsøg == 3)
+                {
+                    AnsiConsole.MarkupLine("[red]Computeren vil nu lukke ned![/]");
+                    System.Diagnostics.Process.Start("shutdown", "/s /t 0"); 
+            }
+        }
+
+        public static void kørApp()
+        {
+            var spilMode = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("What's your [green]favorite fruit[/]?")
+                    .Title("Vælg din [green]spil mode[/]:")
                     .PageSize(10)
-                    .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
+                    .MoreChoicesText("[grey](Bevæg op og ned for at se flere tilstande)[/]")
                     .AddChoices(new[] {
-                    "Let (1-5)", "Normal (1-10)", "Hardcore (1-10)",
+                        "Let (1-5)", "Normal (1-10)", "Hardcore (1-10)",
                     }));
 
-           
-
-            switch (gameMode)
+            switch (spilMode)
             {
-                case "let (1-5)":
-
-                    if (!AnsiConsole.Confirm("[red]Disclaimer[/] \n Du har 3 forsøg til at gætte tallet rigtigt! \n Hvis du ikke gætter det rigtigt, slukker din computer så sørg for at alt er gemt!"))
-                    {
-                        Console.WriteLine("Øv hvor du kedelig!");
-                    }
-                    else
-                    {
-                        gameModeLet();
-                    }
+                case "Let (1-5)":
+                    spilModeLet();
                     break;
 
                 case "Normal (1-10)":
-
-                    if (!AnsiConsole.Confirm("[red]Disclaimer[/] \n Du har 3 forsøg til at gætte tallet rigtigt! \n Hvis du ikke gætter det rigtigt, slukker din computer så sørg for at alt er gemt!"))
-                    {
-                        Console.WriteLine("Øv hvor du kedelig!");
-                    }
-                    else
-                    {
-                        gameModeNormal();
-                    }
+                    spilModeNormal();
                     break;
 
                 case "Hardcore (1-10)":
-                   
-                    if (!AnsiConsole.Confirm("[red]Disclaimer[/] \n Du har 3 forsøg til at gætte tallet rigtigt! \n Hvis du ikke gætter det rigtigt, slukker din computer så sørg for at alt er gemt!"))
+                    if (!AnsiConsole.Confirm("[yellow]WARNING:[/]\nDu har 3 forsøg til at gætte nummeret korrekt! Hvis du ikke gætter det korrekt, vil din computer lukke ned. Sørg for, at alt er gemt! Vil du fortsætte?"))
                     {
-                        Console.WriteLine("Øv hvor du kedelig!");
-                    } 
+                        AnsiConsole.MarkupLine("[yellow]Du valgte at spille sikkert![/]");
+                    }
                     else
                     {
-                        gameModeHardcore();
+                        spilModeHardcore();
                     }
                     break;
             }
-
         }
-
     }
 }
