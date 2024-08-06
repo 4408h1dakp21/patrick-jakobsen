@@ -22,40 +22,40 @@ namespace Patrick_Menu.Programmer
 
         static void GameSettings(int min, int max, int maxForsøg)
         {
-            Random tilfældig = new Random();
-            int hemmeligtNummer = tilfældig.Next(min, max + 1);
-            int forsøg = 0;
-            bool erGættet = false;
+            Random randomNumber = new Random();
+            int secretNumber = randomNumber.Next(min, max + 1);
+            int attempts = 0;
+            bool isGuessed = false;
 
             AnsiConsole.MarkupLine($"Gæt nummeret mellem {min} og {max}!");
 
-            while (forsøg < maxForsøg)
+            while (attempts < maxForsøg)
             {
-                forsøg++;
+                attempts++;
                 int gæt = AnsiConsole.Ask<int>("Indtast dit gæt:");
 
-                if (gæt < hemmeligtNummer)
+                if (gæt < secretNumber)
                 {
                     AnsiConsole.MarkupLine("[yellow]For lavt! Prøv igen.[/]");
                 }
-                else if (gæt > hemmeligtNummer)
+                else if (gæt > secretNumber)
                 {
                     AnsiConsole.MarkupLine("[yellow]For højt! Prøv igen.[/]");
                 }
                 else
                 {
-                    erGættet = true;
+                    isGuessed = true;
                     break;
                 }
             }
 
-            if (erGættet)
+            if (isGuessed)
             {
-                AnsiConsole.MarkupLine($"[green]Tillykke! Du gættede nummeret i {forsøg} forsøg.[/]");
+                AnsiConsole.MarkupLine($"[green]Tillykke! Du gættede nummeret i {attempts} forsøg.[/]");
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]Du har brugt alle {maxForsøg} forsøg. Det hemmelige nummer var {hemmeligtNummer}.[/]");
+                AnsiConsole.MarkupLine($"[red]Du har brugt alle {maxForsøg} forsøg. Det hemmelige nummer var {secretNumber}.[/]");
                 if (maxForsøg == 3)
                 {
                     AnsiConsole.MarkupLine("[red]Computeren vil nu lukke ned![/]");
