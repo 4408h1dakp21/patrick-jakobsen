@@ -3,24 +3,24 @@ using System;
 
 namespace Patrick_Menu.Programmer
 {
-    internal class GætNummer
+    internal class GuessNumber
     {
-        static void spilModeLet()
+        static void GameModelet()
         {
-            Spil(1, 5, int.MaxValue); // Ubegrænsede forsøg
+            GameSettings(1, 5, int.MaxValue); // Ubegrænsede forsøg
         }
 
-        static void spilModeNormal()
+        static void GameModeNormal()
         {
-            Spil(1, 10, int.MaxValue); // Ubegrænsede forsøg
+            GameSettings(1, 10, int.MaxValue); // Ubegrænsede forsøg
         }
 
-        static void spilModeHardcore()
+        static void GameModeHardcore()
         {
-            Spil(1, 10, 3); // 3 forsøg
+            GameSettings(1, 10, 3); // 3 forsøg
         }
 
-        static void Spil(int min, int max, int maxForsøg)
+        static void GameSettings(int min, int max, int maxForsøg)
         {
             Random tilfældig = new Random();
             int hemmeligtNummer = tilfældig.Next(min, max + 1);
@@ -59,11 +59,13 @@ namespace Patrick_Menu.Programmer
                 if (maxForsøg == 3)
                 {
                     AnsiConsole.MarkupLine("[red]Computeren vil nu lukke ned![/]");
-                    System.Diagnostics.Process.Start("shutdown", "/s /t 0"); 
+                    System.Diagnostics.Process.Start("shutdown", "/s /t 0");
+                }
             }
+
         }
 
-        public static void kørApp()
+        public static void runApp()
         {
             var spilMode = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -77,11 +79,11 @@ namespace Patrick_Menu.Programmer
             switch (spilMode)
             {
                 case "Let (1-5)":
-                    spilModeLet();
+                    GameModelet();
                     break;
 
                 case "Normal (1-10)":
-                    spilModeNormal();
+                    GameModeNormal();
                     break;
 
                 case "Hardcore (1-10)":
@@ -91,7 +93,7 @@ namespace Patrick_Menu.Programmer
                     }
                     else
                     {
-                        spilModeHardcore();
+                        GameModeHardcore();
                     }
                     break;
             }
