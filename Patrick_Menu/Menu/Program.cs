@@ -11,16 +11,15 @@ namespace Patrick_Menu.Menu
             AppList appList = new AppList();
 
             // Display some static text
-            Console.WriteLine("Velkommen til programmenuen!");
-            Console.WriteLine("Dette er nogle statiske oplysninger, der ikke skal fjernes.");
-            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\r\n ______   ______     ______     ______     ______     ______     __    __     __    __     ______     ______    \r\n/\\  == \\ /\\  == \\   /\\  __ \\   /\\  ___\\   /\\  == \\   /\\  __ \\   /\\ \"-./  \\   /\\ \"-./  \\   /\\  ___\\   /\\  == \\   \r\n\\ \\  _-/ \\ \\  __<   \\ \\ \\/\\ \\  \\ \\ \\__ \\  \\ \\  __<   \\ \\  __ \\  \\ \\ \\-./\\ \\  \\ \\ \\-./\\ \\  \\ \\  __\\   \\ \\  __<   \r\n \\ \\_\\    \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_\\ \\_\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\ \\_\\  \\ \\_____\\  \\ \\_\\ \\_\\ \r\n  \\/_/     \\/_/ /_/   \\/_____/   \\/_____/   \\/_/ /_/   \\/_/\\/_/   \\/_/  \\/_/   \\/_/  \\/_/   \\/_____/   \\/_/ /_/ \r\n                                                                                                                \r\n");
 
             // Prompt for which program the user wants to run without clearing the static text
             var app = new SelectionPrompt()
                 .Title("Vælg et Program Du vil prøve")
                 .TitleColor(ConsoleColor.Blue)
                 .PageSize(10)
-                .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
+                .MoreChoicesText("")
                 .AddChoices(new[] {
                 "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras", "Alder", "Guess Number", "Exit"
                 })

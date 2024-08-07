@@ -5,6 +5,7 @@ namespace Patrick_Menu.Programmer
 {
     internal class GuessNumber
     {
+
         static void GameModelet()
         {
             GameSettings(1, 5, int.MaxValue); // Ubegrænsede forsøg
@@ -82,7 +83,7 @@ namespace Patrick_Menu.Programmer
 
         public static void runApp()
         {
-
+            Console.Clear();
             var spilMode = new SelectionPrompt()
                 .Title("Vælg din spil mode:")
                 .TitleColor(ConsoleColor.Green)

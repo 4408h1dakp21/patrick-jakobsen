@@ -10,6 +10,9 @@ namespace Patrick_Menu.Programmer
     {
         public static void runApp()
         {
+
+            Console.Clear();
+
             double GetValidNumber(string prompt)
             {
                 double number;

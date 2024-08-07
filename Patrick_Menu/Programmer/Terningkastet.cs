@@ -20,6 +20,8 @@ namespace Patrick_Menu.Programmer
              * Jeg har lavet begge eksempler
              */
 
+            Console.Clear();
+
             static void ifStatement()
             {
                 bool throwAgain = true;
@@ -130,10 +132,10 @@ namespace Patrick_Menu.Programmer
             }
 
             var choise = new SelectionPrompt()
-                .Title("Ville du bruge [green]if/else[/] eller [blue]Switch Case[/]?")
+                .Title("Ville du bruge if/else eller Switch Case?")
                 .TitleColor(ConsoleColor.White)
                 .PageSize(3)
-                .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
+                .MoreChoicesText("")
                 .AddChoices(new[] {
                     "if/else", "Switch Case",
                 })
