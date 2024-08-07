@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using Patrick_Menu.Menu.Components;
+using Spectre.Console;
 using System.IO;
 
 namespace Patrick_Menu.Menu
@@ -7,26 +8,28 @@ namespace Patrick_Menu.Menu
     {
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             AppList appList = new AppList();
 
-            AnsiConsole.Write(
-            new FigletText("Programmer")
-             .LeftJustified()
-             .Color(Color.Green));
+            // Display some static text
+            Console.WriteLine("Velkommen til programmenuen!");
+            Console.WriteLine("Dette er nogle statiske oplysninger, der ikke skal fjernes.");
+            Console.WriteLine();
 
-            // sprøg for hvilket program brugeren ville køre!
-            var app = AnsiConsole.Prompt(
-                new SelectionPrompt<string>()
-                    .Title("Vælg et [green]Program [/] Du vil prøve")
-                    .PageSize(10)
-                    .MoreChoicesText("[grey](Ryk op og ned for at se flere programmer)[/]")
-                    .AddChoices(new[] {
-                        "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras", "Alder", "Guess Number", "Exit"
-                    }));
-
+            // Prompt for which program the user wants to run without clearing the static text
+            var app = new SelectionPrompt()
+                .Title("Vælg et Program Du vil prøve")
+                .TitleColor(ConsoleColor.Blue)
+                .PageSize(10)
+                .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
+                .AddChoices(new[] {
+                "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras", "Alder", "Guess Number", "Exit"
+                })
+                .ChoiceColor(ConsoleColor.Green)
+                .ClearConsole(false) // Do not clear the console
+                .Prompt();
 
             appList.getAppList(app);
-
         }
     }
 }
