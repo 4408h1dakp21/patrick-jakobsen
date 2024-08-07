@@ -113,7 +113,9 @@ namespace Patrick_Menu.Programmer
                        .WarningMessage("Du har 3 forsøg til at gætte nummeret korrekt! Hvis du ikke gætter det korrekt, vil din computer lukke ned. Sørg for, at alt er gemt!")
                        .PromptMessage("Vil du fortsætte?")
                        .WarningColor(ConsoleColor.Yellow)
+                       .defaultAccept("N")
                        .PromptColor(ConsoleColor.White);
+               
 
                     if (confirmPrompt.Ask())
                     {

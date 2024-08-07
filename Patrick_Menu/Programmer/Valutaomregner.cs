@@ -47,12 +47,18 @@ namespace Patrick_Menu.Programmer
                     Console.WriteLine($"EUR: {DKK / EUR:F2}");
                     Console.WriteLine($"SEK: {DKK / SEK:F2}");
 
-                    Console.WriteLine("Vil du foretage en ny omregning? (ja/nej)");
-                    string response = Console.ReadLine().ToLower();
+                  
 
-                    if (response != "ja")
+                    var confirmPrompt = new ConfirmPrompt()
+                        .WarningMessage("Vil du foretage en ny omregning?")
+                        .PromptMessage("")
+                        .WarningColor(ConsoleColor.White)
+                        .defaultAccept("y")
+                        .PromptColor(ConsoleColor.White);
+
+                    if (!confirmPrompt.Ask())
                     {
-                        continueConversion = false;
+                        continueConversion = true;
                     }
                 }
                 catch (FormatException)

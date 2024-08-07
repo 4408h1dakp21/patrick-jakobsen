@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Patrick_Menu.Menu.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,12 +70,16 @@ namespace Patrick_Menu.Programmer
                     Console.WriteLine($"Rumfanget: {outputVolume} {calculateVolume}");
 
                     // Tjek om brugeren ville lave en ny udregning
-                    Console.WriteLine("Vil du foretage en ny udregning? (ja/nej)");
-                    string response = Console.ReadLine().ToLower();
+                    var confirmPrompt = new ConfirmPrompt()
+                        .WarningMessage("Vil du foretage en ny udregning?")
+                        .PromptMessage("")
+                        .WarningColor(ConsoleColor.White)
+                        .defaultAccept("y")
+                        .PromptColor(ConsoleColor.White);
 
-                    if (response != "ja")
+                    if (!confirmPrompt.Ask())
                     {
-                        continueConversion = false;
+                        continueConversion = true;
                     }
                 }
                 catch (FormatException ex)

@@ -34,6 +34,10 @@ namespace Patrick_Menu.Menu
                 case "Guess Number":
                     GuessNumber.runApp();
                     break;
+
+                case "Porto":
+                    Porto.runApp();
+                    break;
                 case "Exit":
                     Program._exit = true;
                     break;

@@ -47,12 +47,16 @@ namespace Patrick_Menu.Programmer
                     Console.WriteLine($"Temperatur i Reamur: {reamur}");
                     Console.WriteLine($"Temperatur i Fahrenheit: {fahrenheit}");
 
-                    Console.WriteLine("Vil du foretage en ny udregning? (ja/nej)");
-                    string response = Console.ReadLine().ToLower();
+                    var confirmPrompt = new ConfirmPrompt()
+                        .WarningMessage("Vil du foretage en ny udregning?")
+                        .PromptMessage("")
+                        .WarningColor(ConsoleColor.White)
+                        .defaultAccept("y")
+                        .PromptColor(ConsoleColor.White);
 
-                    if (response != "ja")
+                    if (!confirmPrompt.Ask())
                     {
-                        continueConversion = false;
+                        continueConversion = true;
                     }
                 }
                 catch (FormatException)
