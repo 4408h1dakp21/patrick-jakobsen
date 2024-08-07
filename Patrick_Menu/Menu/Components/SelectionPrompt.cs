@@ -13,6 +13,7 @@ namespace Patrick_Menu.Menu.Components
         private string _moreChoicesText;
         private bool _clearConsole;
 
+
         public SelectionPrompt()
         {
             _choices = new List<string>();

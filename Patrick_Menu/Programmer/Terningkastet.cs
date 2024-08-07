@@ -40,12 +40,17 @@ namespace Patrick_Menu.Programmer
                 Console.ForegroundColor = _terningColor;
                 Console.WriteLine($"Du slog en {terningKast}");
 
-                Console.WriteLine("Vil du slå igen? (ja/nej)");
-                string response = Console.ReadLine().ToLower();
+                var confirmPrompt = new ConfirmPrompt()
+                    .WarningMessage("")
+                    .PromptMessage("Ville du slå igen?")
+                    .WarningColor(ConsoleColor.White)
+                    .defaultAccept("y")
+                    .PromptColor(ConsoleColor.White);
+                
 
-                if (response != "ja")
+                if (!confirmPrompt.Ask())
                 {
-                    throwAgain = false;
+                    throwAgain = true;
                 }
             }
         }

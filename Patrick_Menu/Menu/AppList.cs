@@ -35,7 +35,7 @@ namespace Patrick_Menu.Menu
                     GuessNumber.runApp();
                     break;
                 case "Exit":
-                    System.Environment.Exit(1);
+                    Program._exit = true;
                     break;
             }
         }
