@@ -11,11 +11,7 @@ namespace Patrick_Menu.Programmer
 
         public static void runApp()
         {
-            var dicornary = new Dictionary<string, string>
-            {
-                
-            };
-
+         
         }
     }
 }

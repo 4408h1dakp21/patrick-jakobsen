@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\guessnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\pythagoras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\pythagoras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\terningkastet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\terningkastet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\alder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\alder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\menu\\components\\selectionprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\menu\\components\\selectionprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\menu\\components\\confirmprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\menu\\components\\confirmprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\porto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\porto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Pythagoras.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Pythagoras.cs",
-              "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Pythagoras.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Pythagoras.cs",
-              "RelativeToolTip": "Patrick_Menu\\Programmer\\Pythagoras.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:47:46.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Terningkastet.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Terningkastet.cs",
               "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Terningkastet.cs",
               "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Terningkastet.cs",
               "RelativeToolTip": "Patrick_Menu\\Programmer\\Terningkastet.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAJAAAA",
+              "ViewState": "AQIAABEAAAAAFgAAAIAqwB0AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:20:27.576Z",
+              "WhenOpened": "2024-08-07T09:52:57.015Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Alder.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Alder.cs",
-              "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Alder.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Alder.cs",
-              "RelativeToolTip": "Patrick_Menu\\Programmer\\Alder.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAjAAAA",
+              "DocumentIndex": 1,
+              "Title": "SelectionPrompt.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
+              "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
+              "RelativeToolTip": "Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
+              "ViewState": "AQIAAAAAAAAANDMzMzPrvwgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:20:18.845Z",
+              "WhenOpened": "2024-08-07T09:54:06.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Program.cs",
-              "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\Program.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Program.cs",
-              "RelativeToolTip": "Patrick_Menu\\Menu\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "Porto.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Porto.cs",
+              "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Porto.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Porto.cs",
+              "RelativeToolTip": "Patrick_Menu\\Programmer\\Porto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:20:12.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GuessNumber.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\GuessNumber.cs",
-              "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\GuessNumber.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\GuessNumber.cs",
-              "RelativeToolTip": "Patrick_Menu\\Programmer\\GuessNumber.cs",
-              "ViewState": "AQIAAEMAAAAAAQAAAIAswFUAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:18:34.323Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ConfirmPrompt.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\ConfirmPrompt.cs",
-              "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\Components\\ConfirmPrompt.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\ConfirmPrompt.cs",
-              "RelativeToolTip": "Patrick_Menu\\Menu\\Components\\ConfirmPrompt.cs",
-              "ViewState": "AQIAAAQAAAAAzszMzIwzwDUAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:18:02.024Z",
+              "WhenOpened": "2024-08-07T09:22:36.632Z",
               "EditorCaption": ""
             }
           ]
