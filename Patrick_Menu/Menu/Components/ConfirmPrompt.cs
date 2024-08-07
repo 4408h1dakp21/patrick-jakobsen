@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Patrick_Menu.Menu.Components
 {
@@ -49,6 +50,8 @@ namespace Patrick_Menu.Menu.Components
 
         public bool Ask()
         {
+
+            bool isConfirmed = false;
             Console.ForegroundColor = _warningColor;
             Console.WriteLine(_warningMessage);
             Console.ResetColor();
@@ -57,9 +60,24 @@ namespace Patrick_Menu.Menu.Components
             Console.Write(_promptMessage + $" y/N ({_defaultAccept}): ");
             Console.ResetColor();
 
-            string input = Console.ReadLine()?.Trim().ToLower();
+           string input = Console.ReadLine()?.Trim().ToLower();
 
-            return input == $"{_defaultAccept}";
+           var finalInput = String.IsNullOrEmpty(input) ? _defaultAccept : input;
+
+            switch (finalInput)
+                {
+                case "y":
+                    isConfirmed = true;
+                    break;
+                case "n":
+                    isConfirmed = false;
+                    break;
+                default:
+                    isConfirmed = true;
+                    break;
+            }
+
+            return isConfirmed;
         }
     }
 }

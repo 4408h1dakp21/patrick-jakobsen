@@ -12,20 +12,17 @@ namespace Patrick_Menu.Programmer
 
         public static void runApp()
         {
-            // værdiger
+            // Værdig for at holde styr på om brugeren vil lave en ny udregning
             bool continueConversation = true;
-
-            string contryCode = "DKK";
-
-
-            Console.Clear();
-
-           // Velkomst besked!
-           Console.ForegroundColor = ConsoleColor.Blue;
-           Console.WriteLine("  _____          _                       _ \r\n |  __ \\        | |                     | |\r\n | |__) |__  ___| |_ _ __   ___  _ __ __| |\r\n |  ___/ _ \\/ __| __| '_ \\ / _ \\| '__/ _` |\r\n | |  | (_) \\__ \\ |_| | | | (_) | | | (_| |\r\n |_|   \\___/|___/\\__|_| |_|\\___/|_|  \\__,_|\r\n                                           \r\n                                           ");
 
             while (continueConversation)
             {
+                Console.Clear();
+
+                // Velkomst besked!
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("  _____          _                       _ \r\n |  __ \\        | |                     | |\r\n | |__) |__  ___| |_ _ __   ___  _ __ __| |\r\n |  ___/ _ \\/ __| __| '_ \\ / _ \\| '__/ _` |\r\n | |  | (_) \\__ \\ |_| | | | (_) | | | (_| |\r\n |_|   \\___/|___/\\__|_| |_|\\___/|_|  \\__,_|\r\n                                           \r\n                                           ");
+
 
                 // Håndter brugerinput for hvilket land der skal sendes til
                 var contryCodeSelector = new SelectionPrompt()
@@ -40,7 +37,7 @@ namespace Patrick_Menu.Programmer
                     .ClearConsole(false) // Do not clear the console
                     .Prompt();
 
-                contryCodeSelector = contryCode;
+                Console.WriteLine($"Du har valgt at sende til: {contryCodeSelector}");
 
 
                 // Tjek om brugeren ville lave en ny udregning
@@ -48,11 +45,12 @@ namespace Patrick_Menu.Programmer
                     .WarningMessage("")
                     .PromptMessage("Ville du lave en ny udregning?")
                     .WarningColor(ConsoleColor.White)
-                    .defaultAccept("y")
+                    .defaultAccept("n")
                     .PromptColor(ConsoleColor.White);
 
                 if (!confirmPrompt.Ask())
                 {
+                   
                     continueConversation = false;
                 }
             }
