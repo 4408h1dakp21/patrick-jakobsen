@@ -71,7 +71,7 @@ Følg disse trin for at installere og køre projektet:
 
 Projektet har følgene components:
 
-- UserInput
+## UserInput
 
 ### Int:
 ````C#
@@ -89,6 +89,7 @@ Projektet har følgene components:
 
         int intValue = userInput.GetInput();
         Console.WriteLine($"You entered the integer: {intValue}");
+````
 
 ### Double:
 ````C#
@@ -120,4 +121,19 @@ Projektet har følgene components:
 
         string stringValue = userInput.GetInput();
         Console.WriteLine($"You entered the string: {stringValue}");
+````
+
+## SelectionPrompt
+````C#
+ var app = new SelectionPrompt()
+     .Title("Vælg et Program Du vil prøve")
+     .TitleColor(ConsoleColor.Blue)
+     .PageSize(10)
+     .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
+     .AddChoices(new[] {
+     "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras", "Alder", "Guess Number", "Exit"
+     })
+     .ChoiceColor(ConsoleColor.Green)
+     .ClearConsole(false) // Do not clear the console
+     .Prompt();
 ````
