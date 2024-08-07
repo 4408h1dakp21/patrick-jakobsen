@@ -137,3 +137,18 @@ Projektet har følgene components:
      .ClearConsole(false) // Do not clear the console
      .Prompt();
 ````
+
+## ConfirmPrompt
+````C#
+var confirmPrompt = new ConfirmPrompt()
+    .WarningMessage("")
+    .PromptMessage("Ville du slå igen?")
+    .WarningColor(ConsoleColor.White)
+    .defaultAccept("y")
+    .PromptColor(ConsoleColor.White);
+
+if (!confirmPrompt.Ask())
+{
+ throwAgain = true;
+}
+````
