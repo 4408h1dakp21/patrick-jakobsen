@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Patrick_Menu.Menu.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,24 @@ namespace Patrick_Menu.Programmer
             while (continueConversion)
             {
                 Console.Clear();
-                Console.WriteLine("Indtast beløb i DKK, som du vil omregne:");
 
                 // Håndter brugerinput og tjekker om det er et gyldigt tal og laver omregningen
                 try
                 {
-                    double DKK = double.Parse(Console.ReadLine());
+                    var userInput = new UserInput<double>()
+                               .Title("Indtast beløb i DKK, som du vil omregne:")
+                               .TitleColor(ConsoleColor.Blue)
+                               .Prompt(
+                                   promptText: "Indtast beløb her: ",
+                                   validationFunc: input =>
+                                   {
+                                       bool isValid = double.TryParse(input, out var value);
+                                       return (isValid, value);
+                                   }
+                               );
+
+                    double DKK = userInput.GetInput();
+             
 
                     Console.WriteLine($"Beløbet i DKK: {DKK}");
                     Console.WriteLine($"USD: {DKK / USD:F2}");

@@ -7,7 +7,7 @@ En samling af små applikationer udviklet som en del af H1 - Grundlæggende Prog
 - [Introduktion](#introduktion)
 - [Applikationer](#applikationer)
 - [Installation](#installation)
-- [Pakker](#pakker)
+- [Components](#components)
 
 ## Introduktion
 
@@ -67,9 +67,57 @@ Følg disse trin for at installere og køre projektet:
 6. Kør applikationen:
    - I Visual Studio, tryk `F5` for at køre applikationen.
 
-## Pakker
+## Components
 
-Projektet bruger følgende NuGet-pakker:
+Projektet har følgene components:
 
-- [Spectre.Console](https://www.nuget.org/packages/Spectre.Console/0.49.2-preview.0.14) - En bibliotek til nemmere oprettelse af flotte konsolapplikationer.
-- [Spectre.Console.Cli](https://www.nuget.org/packages/Spectre.Console.Cli/0.49.2-preview.0.14) - En bibliotek til nemmere oprettelse af CLI-applikationer med flotte konsolgrænseflader.
+- UserInput
+
+### Int:
+````C#
+ var userInput = new UserInput<int>()
+            .Title("Enter an integer value:")
+            .TitleColor(ConsoleColor.Cyan)
+            .Prompt(
+                promptText: "Please enter an integer: ",
+                validationFunc: input =>
+                {
+                    bool isValid = int.TryParse(input, out var value);
+                    return (isValid, value);
+                }
+            );
+
+        int intValue = userInput.GetInput();
+        Console.WriteLine($"You entered the integer: {intValue}");
+
+### Double:
+````C#
+ var userInput = new UserInput<double>()
+            .Title("Enter a double value:")
+            .TitleColor(ConsoleColor.Magenta)
+            .Prompt(
+                promptText: "Please enter a double: ",
+                validationFunc: input =>
+                {
+                    bool isValid = double.TryParse(input, out var value);
+                    return (isValid, value);
+                }
+            );
+
+        double doubleValue = userInput.GetInput();
+        Console.WriteLine($"You entered the double: {doubleValue}");
+````
+
+### String:
+````C#
+  var userInput = new UserInput<string>()
+            .Title("Enter a string value:")
+            .TitleColor(ConsoleColor.Green)
+            .Prompt(
+                promptText: "Please enter a string: ",
+                validationFunc: input => (true, input) // Always valid for strings
+            );
+
+        string stringValue = userInput.GetInput();
+        Console.WriteLine($"You entered the string: {stringValue}");
+````

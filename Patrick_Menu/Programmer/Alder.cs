@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using Patrick_Menu.Menu.Components;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,36 @@ namespace Patrick_Menu.Programmer
         // Function til at køre programmet ind 
         public static void runApp()
         {
-            // Værdigere til at få navn og alder
-            string name = AnsiConsole.Ask<string>("Hvad er dit [green]navn[/]?");
 
-            int alder = AnsiConsole.Ask<int>("Hvor gammel er [blue]du[/]?");
+            Console.Clear();
+            // Værdigere til at få navn og alder
+            var nameInput = new UserInput<string>()
+             .Title("Hvad er dit navn?")
+             .TitleColor(ConsoleColor.White)
+             .Prompt(
+                 promptText: "Indtast dit navn her: ",
+                 validationFunc: input => (true, input) // Always valid for strings
+             );
+
+            string name = nameInput.GetInput();
+
+            Console.WriteLine("");
+
+            var alderInput = new UserInput<int>()
+            .Title("Hvor gammel er du?")
+            .TitleColor(ConsoleColor.White)
+            .Prompt(
+                promptText: "Indtast din alder her: ",
+                validationFunc: input =>
+                {
+                    bool isValid = int.TryParse(input, out var value);
+                    return (isValid, value);
+                }
+            );
+
+            int alder = alderInput.GetInput();
+
+            Console.WriteLine("");
 
 
             // If statement som, tjekker hvor gammle man er!

@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\alder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\alder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\menu\\components\\selectionprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\menu\\components\\selectionprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\valutaomregner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\valutaomregner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\menu\\components\\userinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\menu\\components\\userinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\porto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\porto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\valutaomregner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\valutaomregner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,24 +30,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SelectionPrompt.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
-              "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
-              "RelativeToolTip": "Patrick_Menu\\Menu\\Components\\SelectionPrompt.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
+              "DocumentIndex": 0,
+              "Title": "Alder.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Alder.cs",
+              "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Alder.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Alder.cs",
+              "RelativeToolTip": "Patrick_Menu\\Programmer\\Alder.cs",
+              "ViewState": "AQIAABgAAADgNzMzM1MwwC0AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T06:35:23.401Z",
+              "WhenOpened": "2024-08-07T07:05:27.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "UserInput.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\UserInput.cs",
+              "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\Components\\UserInput.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Components\\UserInput.cs",
+              "RelativeToolTip": "Patrick_Menu\\Menu\\Components\\UserInput.cs",
+              "ViewState": "AQIAABsAAADAmZmZmdklwCgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-07T07:02:53.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Porto.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Porto.cs",
               "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Porto.cs",
@@ -56,26 +73,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Valutaomregner.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Valutaomregner.cs",
               "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Valutaomregner.cs",
               "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Valutaomregner.cs",
               "RelativeToolTip": "Patrick_Menu\\Programmer\\Valutaomregner.cs",
-              "ViewState": "AQIAAAkAAADAAAAAAEApwBsAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T12:06:10.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Program.cs",
               "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\Program.cs",
               "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\Program.cs",
               "RelativeToolTip": "Patrick_Menu\\Menu\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T11:44:47.099Z",
               "EditorCaption": ""
