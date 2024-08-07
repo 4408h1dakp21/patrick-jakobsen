@@ -1,5 +1,4 @@
 ﻿using Patrick_Menu.Menu.Components;
-using Spectre.Console;
 using System.IO;
 
 namespace Patrick_Menu.Menu

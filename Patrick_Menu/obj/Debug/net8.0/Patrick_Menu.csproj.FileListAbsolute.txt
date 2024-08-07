@@ -3,13 +3,10 @@ C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0\Patrick_Menu.runtimeconfig.json
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0\Patrick_Menu.dll
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0\Patrick_Menu.pdb
-C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0\Spectre.Console.dll
-C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.csproj.AssemblyReference.cache
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.AssemblyInfoInputs.cache
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.AssemblyInfo.cs
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.csproj.CoreCompileInputs.cache
-C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_.D91985ED.Up2Date
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.dll
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\refint\Patrick_Menu.dll
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.pdb

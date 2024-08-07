@@ -1,5 +1,4 @@
 ﻿using Patrick_Menu.Menu.Components;
-using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +54,7 @@ namespace Patrick_Menu.Programmer
             {
                 Console.WriteLine($"{name}, du må ingenting");
             } 
-            else if (alder >= 15 && alder < 18)
+            else if (alder > 15 && alder < 18)
             {
                 Console.WriteLine($"{name}, du må drikke");
             } 

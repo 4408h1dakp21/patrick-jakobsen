@@ -1,4 +1,4 @@
-﻿using Spectre.Console;
+﻿using Patrick_Menu.Menu.Components;
 using System;
 
 namespace Patrick_Menu.Programmer
@@ -27,20 +27,35 @@ namespace Patrick_Menu.Programmer
             int attempts = 0;
             bool isGuessed = false;
 
-            AnsiConsole.MarkupLine($"Gæt nummeret mellem {min} og {max}!");
+            Console.WriteLine($"Gæt nummeret mellem {min} og {max}!");
 
             while (attempts < maxForsøg)
             {
                 attempts++;
-                int gæt = AnsiConsole.Ask<int>("Indtast dit gæt:");
 
-                if (gæt < secretNumber)
+                var guessInput = new UserInput<int>()
+                   .Title("")
+                   .TitleColor(ConsoleColor.Cyan)
+                   .Prompt(
+                       promptText: "Indtast dit gæt! ",
+                       validationFunc: input =>
+                       {
+                           bool isValid = int.TryParse(input, out var value);
+                           return (isValid, value);
+                       }
+                   );
+
+                int guess = guessInput.GetInput();
+      
+            
+
+                if (guess < secretNumber)
                 {
-                    AnsiConsole.MarkupLine("[yellow]For lavt! Prøv igen.[/]");
+                    Console.WriteLine("For lavt! Prøv igen.");
                 }
-                else if (gæt > secretNumber)
+                else if (guess > secretNumber)
                 {
-                    AnsiConsole.MarkupLine("[yellow]For højt! Prøv igen.[/]");
+                   Console.WriteLine("For højt! Prøv igen.");
                 }
                 else
                 {
@@ -51,14 +66,14 @@ namespace Patrick_Menu.Programmer
 
             if (isGuessed)
             {
-                AnsiConsole.MarkupLine($"[green]Tillykke! Du gættede nummeret i {attempts} forsøg.[/]");
+                Console.WriteLine($"Tillykke! Du gættede nummeret i {attempts} forsøg.");
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]Du har brugt alle {maxForsøg} forsøg. Det hemmelige nummer var {secretNumber}.[/]");
+                Console.WriteLine($"Du har brugt alle {maxForsøg} forsøg. Det hemmelige nummer var {secretNumber}.");
                 if (maxForsøg == 3)
                 {
-                    AnsiConsole.MarkupLine("[red]Computeren vil nu lukke ned![/]");
+                    Console.WriteLine("Computeren vil nu lukke ned!");
                     System.Diagnostics.Process.Start("shutdown", "/s /t 0");
                 }
             }
@@ -67,14 +82,20 @@ namespace Patrick_Menu.Programmer
 
         public static void runApp()
         {
-            var spilMode = AnsiConsole.Prompt(
-                new SelectionPrompt<string>()
-                    .Title("Vælg din [green]spil mode[/]:")
-                    .PageSize(10)
-                    .MoreChoicesText("[grey](Bevæg op og ned for at se flere tilstande)[/]")
-                    .AddChoices(new[] {
-                        "Let (1-5)", "Normal (1-10)", "Hardcore (1-10)",
-                    }));
+
+            var spilMode = new SelectionPrompt()
+                .Title("Vælg din spil mode:")
+                .TitleColor(ConsoleColor.Green)
+                .PageSize(10)
+                .MoreChoicesText("(Bevæg op og ned for at se flere tilstande)")
+                .AddChoices(new[] {
+                "Let (1-5)", "Normal (1-10)", "Hardcore (1-10)",
+                })
+                .ChoiceColor(ConsoleColor.Green)
+                .ClearConsole(false) // Do not clear the console
+                .Prompt();
+
+
 
             switch (spilMode)
             {
@@ -87,13 +108,19 @@ namespace Patrick_Menu.Programmer
                     break;
 
                 case "Hardcore (1-10)":
-                    if (!AnsiConsole.Confirm("[yellow]WARNING:[/]\nDu har 3 forsøg til at gætte nummeret korrekt! Hvis du ikke gætter det korrekt, vil din computer lukke ned. Sørg for, at alt er gemt! Vil du fortsætte?"))
+                    var confirmPrompt = new ConfirmPrompt()
+                       .WarningMessage("Du har 3 forsøg til at gætte nummeret korrekt! Hvis du ikke gætter det korrekt, vil din computer lukke ned. Sørg for, at alt er gemt!")
+                       .PromptMessage("Vil du fortsætte?")
+                       .WarningColor(ConsoleColor.Yellow)
+                       .PromptColor(ConsoleColor.White);
+
+                    if (confirmPrompt.Ask())
                     {
-                        AnsiConsole.MarkupLine("[yellow]Du valgte at spille sikkert![/]");
+                        GameModeHardcore();
                     }
                     else
                     {
-                        GameModeHardcore();
+                       Console.WriteLine("Du valgte at spille sikkert!");
                     }
                     break;
             }

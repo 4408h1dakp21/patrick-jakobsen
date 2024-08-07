@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Spectre.Console;
+using Patrick_Menu.Menu.Components;
 
 namespace Patrick_Menu.Programmer
 {
@@ -129,17 +129,17 @@ namespace Patrick_Menu.Programmer
                 Console.WriteLine("Tak for at du brugte Terningkast. Farvel!");
             }
 
-
-
-
-
-            var choise = AnsiConsole.Prompt(
-            new SelectionPrompt<string>()
+            var choise = new SelectionPrompt()
                 .Title("Ville du bruge [green]if/else[/] eller [blue]Switch Case[/]?")
+                .TitleColor(ConsoleColor.White)
                 .PageSize(3)
+                .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
                 .AddChoices(new[] {
                     "if/else", "Switch Case",
-                }));
+                })
+                .ChoiceColor(ConsoleColor.Green)
+                .ClearConsole(false) // Do not clear the console
+                .Prompt();
 
             switch (choise)
             {

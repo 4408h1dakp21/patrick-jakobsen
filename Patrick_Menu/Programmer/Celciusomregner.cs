@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Patrick_Menu.Menu.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,25 @@ namespace Patrick_Menu.Programmer
             while (continueConversion)
             {
                 Console.Clear(); // clear console
-                Console.WriteLine("Indtast en værdig i celsius");  // Skriv til console
 
                 // Håndter brugerinput og tjekker om det er et gyldigt tal og laver udregningen
                 try
                 {
-                    double celsius = double.Parse(Console.ReadLine());
+                    var celsiusInput = new UserInput<double>()
+                      .Title("")
+                      .TitleColor(ConsoleColor.White)
+                      .Prompt(
+                          promptText: "Indtast en værdig i celsius: ",
+                          validationFunc: input =>
+                          {
+                              bool isValid = double.TryParse(input, out var value);
+                              return (isValid, value);
+                          }
+                      );
+
+                    double celsius = celsiusInput.GetInput();
+
+
 
                     // Omregning til Reamur
                     double reamur = celsius * 0.8;
