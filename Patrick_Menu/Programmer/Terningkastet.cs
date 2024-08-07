@@ -50,7 +50,7 @@ namespace Patrick_Menu.Programmer
 
                 if (!confirmPrompt.Ask())
                 {
-                    throwAgain = true;
+                    throwAgain = false;
                 }
             }
         }

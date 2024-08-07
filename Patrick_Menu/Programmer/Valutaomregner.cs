@@ -58,7 +58,7 @@ namespace Patrick_Menu.Programmer
 
                     if (!confirmPrompt.Ask())
                     {
-                        continueConversion = true;
+                        continueConversion = false;
                     }
                 }
                 catch (FormatException)

@@ -39,6 +39,7 @@ namespace Patrick_Menu.Menu
                     Porto.runApp();
                     break;
                 case "Exit":
+                    Console.CursorVisible = true; // shows the cursor again before exiting, so you can use the console after the program exits
                     Program._exit = true;
                     break;
             }

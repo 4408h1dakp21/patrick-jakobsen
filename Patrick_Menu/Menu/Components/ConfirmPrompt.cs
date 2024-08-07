@@ -59,7 +59,7 @@ namespace Patrick_Menu.Menu.Components
 
             string input = Console.ReadLine()?.Trim().ToLower();
 
-            return input == $"{defaultAccept}";
+            return input == $"{_defaultAccept}";
         }
     }
 }
