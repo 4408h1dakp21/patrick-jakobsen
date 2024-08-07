@@ -71,7 +71,7 @@ Følg disse trin for at installere og køre projektet:
 
 Projektet har følgene components:
 
-- UserInput
+### UserInput
 
 ### Int:
 ````C#
@@ -89,6 +89,7 @@ Projektet har følgene components:
 
         int intValue = userInput.GetInput();
         Console.WriteLine($"You entered the integer: {intValue}");
+````
 
 ### Double:
 ````C#
