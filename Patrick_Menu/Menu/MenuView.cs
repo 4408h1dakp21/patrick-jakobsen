@@ -25,7 +25,7 @@ namespace Patrick_Menu.Menu
                 .PageSize(10)
                 .MoreChoicesText("")
                 .AddChoices(new[] {
-                "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras", "Alder", "Guess Number", "Porto", "Exit"
+                "Celciusomregner", "Valutaomregner", "Rumfanget", "Terningkastet", "Pythagoras", "Alder", "Guess Number", "Porto", "Morsekoden", "Exit"
                 })
                 .ChoiceColor(ConsoleColor.Green)
                 .ClearConsole(false) // Do not clear the console
