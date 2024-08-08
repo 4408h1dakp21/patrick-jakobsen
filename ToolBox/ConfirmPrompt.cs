@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
-namespace ToolBox
+﻿namespace ToolBox
 {
     public class ConfirmPrompt
     {
@@ -50,7 +47,6 @@ namespace ToolBox
 
         public bool Ask()
         {
-
             bool isConfirmed = false;
             Console.ForegroundColor = _warningColor;
             Console.WriteLine(_warningMessage);
@@ -60,12 +56,11 @@ namespace ToolBox
             Console.Write(_promptMessage + $" y/N ({_defaultAccept}): ");
             Console.ResetColor();
 
-           string input = Console.ReadLine()?.Trim().ToLower();
-
-           var finalInput = String.IsNullOrEmpty(input) ? _defaultAccept : input;
+            string input = Console.ReadLine()?.Trim().ToLower();
+            var finalInput = string.IsNullOrEmpty(input) ? _defaultAccept : input;
 
             switch (finalInput)
-                {
+            {
                 case "y":
                     isConfirmed = true;
                     break;

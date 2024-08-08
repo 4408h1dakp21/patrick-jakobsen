@@ -14,3 +14,6 @@ C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\ref\Patrick_Menu.dll
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.sourcelink.json
 C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_Menu.csproj.AssemblyReference.cache
+C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0\ToolBox.dll
+C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\bin\Debug\net8.0\ToolBox.pdb
+C:\Users\patrickjakobsen\source\repos\Patrick_Menu\Patrick_Menu\obj\Debug\net8.0\Patrick_.D91985ED.Up2Date
