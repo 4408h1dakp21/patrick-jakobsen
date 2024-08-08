@@ -6,6 +6,7 @@ namespace Patrick_Menu.Programmer
 {
     internal class Porto
     {
+
         // Dictionary holding rates for sending letters to different countries
         static Dictionary<string, List<(int weight, int rate)>> letterRates = new Dictionary<string, List<(int, int)>>
         {
@@ -42,6 +43,7 @@ namespace Patrick_Menu.Programmer
 
             while (continueConversation)
             {
+
                 // Clear the console and display the title
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -220,11 +222,13 @@ namespace Patrick_Menu.Programmer
                     Console.WriteLine("Ingen passende pris fundet for den angivne vægt og dimensioner."); // No rate found
                 }
 
+             
+
                 // Prompt user if they want to perform another calculation
                 var confirmPrompt = new ConfirmPrompt()
                     .PromptMessage("Ville du lave en ny udregning?") // Prompt for new calculation
                     .PromptColor(ConsoleColor.White)
-                    .defaultAccept("n");
+                    .defaultAccept("y");
 
                 continueConversation = confirmPrompt.Ask(); // Continue or exit based on user response
             }
