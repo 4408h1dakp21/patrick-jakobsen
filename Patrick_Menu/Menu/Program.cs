@@ -1,5 +1,5 @@
-﻿using Patrick_Menu.Menu.Components;
-using System.IO;
+﻿using System.IO;
+using System.Text;
 
 namespace Patrick_Menu.Menu
 {
@@ -11,11 +11,9 @@ namespace Patrick_Menu.Menu
             while (!_exit)
             {
                 Console.Clear();
+                Console.OutputEncoding = Encoding.UTF8; // add support for æ/ø/å
                 MenuView.showMenu();
             }
-
-   
-
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Patrick_Menu.Menu.Components
+namespace ToolBox
 {
-    internal class SelectionPrompt
+    public class SelectionPrompt
     {
         private string _title;
         private ConsoleColor _titleColor;

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Patrick_Menu.Menu.Components
+namespace ToolBox
 {
-    internal class UserInput<T>
+    public class UserInput<T>
     {
         private string _title;
         private ConsoleColor _titleColor;

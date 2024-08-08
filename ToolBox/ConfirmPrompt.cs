@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Patrick_Menu.Menu.Components
+namespace ToolBox
 {
-    internal class ConfirmPrompt
+    public class ConfirmPrompt
     {
         private string _warningMessage;
         private string _promptMessage;
