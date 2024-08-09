@@ -3,24 +3,42 @@ using System.Collections.Generic;
 
 namespace ToolBox
 {
+    // Represents a menu item, which can optionally contain sub-choices
+    public class Choice
+    {
+        public string Name { get; set; }
+        public List<Choice> SubChoices { get; set; }
+        public bool IsSubChoice { get; set; } // New property to indicate sub-choices
+
+        public Choice(string name, bool isSubChoice = false)
+        {
+            Name = name;
+            SubChoices = new List<Choice>();
+            IsSubChoice = isSubChoice;
+        }
+
+        public bool HasSubChoices => SubChoices.Count > 0;
+    }
+
     public class SelectionPrompt
     {
         private string _title;
         private ConsoleColor _titleColor;
-        private List<string> _choices;
+        private List<Choice> _choices;
         private ConsoleColor _choiceColor;
+        private ConsoleColor _subChoiceColor; // Color for sub-choices
         private int _pageSize;
         private string _moreChoicesText;
         private bool _clearConsole;
 
-
         public SelectionPrompt()
         {
-            _choices = new List<string>();
+            _choices = new List<Choice>();
             _pageSize = 10; // default page size
-            _moreChoicesText = "(Ryk op og ned for at se flere programmer)";
+            _moreChoicesText = "(Use Up/Down to navigate, Enter to select)";
             _titleColor = ConsoleColor.White; // default title color
             _choiceColor = ConsoleColor.White; // default choice color
+            _subChoiceColor = ConsoleColor.Cyan; // default color for sub-choices
             _clearConsole = true; // default behavior is to clear the console
         }
 
@@ -48,7 +66,7 @@ namespace ToolBox
             return this;
         }
 
-        public SelectionPrompt AddChoices(IEnumerable<string> choices)
+        public SelectionPrompt AddChoices(IEnumerable<Choice> choices)
         {
             _choices.AddRange(choices);
             return this;
@@ -60,6 +78,12 @@ namespace ToolBox
             return this;
         }
 
+        public SelectionPrompt SubChoiceColor(ConsoleColor color)
+        {
+            _subChoiceColor = color;
+            return this;
+        }
+
         public SelectionPrompt ClearConsole(bool clear)
         {
             _clearConsole = clear;
@@ -67,6 +91,11 @@ namespace ToolBox
         }
 
         public string Prompt()
+        {
+            return DisplayChoices(_choices);
+        }
+
+        private string DisplayChoices(List<Choice> choices)
         {
             int selectedIndex = 0;
             int startLine = Console.CursorTop;
@@ -91,18 +120,19 @@ namespace ToolBox
                     Console.ResetColor();
                 }
 
-                for (int i = 0; i < _choices.Count; i++)
+                for (int i = 0; i < choices.Count; i++)
                 {
                     if (i == selectedIndex)
                     {
                         Console.ForegroundColor = ConsoleColor.Green; // Highlight selected choice
-                        Console.WriteLine($"> {_choices[i]}");
+                        Console.WriteLine($"> {choices[i].Name}");
                         Console.ResetColor();
                     }
                     else
                     {
-                        Console.ForegroundColor = _choiceColor;
-                        Console.WriteLine($"  {_choices[i]}");
+                        // Apply different colors for sub-choices
+                        Console.ForegroundColor = choices[i].IsSubChoice ? _subChoiceColor : _choiceColor;
+                        Console.WriteLine($"  {choices[i].Name}");
                         Console.ResetColor();
                     }
                 }
@@ -113,15 +143,33 @@ namespace ToolBox
 
                 if (key == ConsoleKey.UpArrow)
                 {
-                    selectedIndex = (selectedIndex == 0) ? _choices.Count - 1 : selectedIndex - 1;
+                    selectedIndex = (selectedIndex == 0) ? choices.Count - 1 : selectedIndex - 1;
                 }
                 else if (key == ConsoleKey.DownArrow)
                 {
-                    selectedIndex = (selectedIndex == _choices.Count - 1) ? 0 : selectedIndex + 1;
+                    selectedIndex = (selectedIndex == choices.Count - 1) ? 0 : selectedIndex + 1;
                 }
                 else if (key == ConsoleKey.Enter)
                 {
-                    return _choices[selectedIndex];
+                    if (choices[selectedIndex].HasSubChoices)
+                    {
+                        // If the selected choice has sub-choices, navigate into them
+                        var selectedSubChoice = DisplayChoices(choices[selectedIndex].SubChoices);
+                        if (selectedSubChoice != null)
+                        {
+                            return selectedSubChoice;
+                        }
+                    }
+                    else
+                    {
+                        // Return the name of the selected choice
+                        return choices[selectedIndex].Name;
+                    }
+                }
+                else if (key == ConsoleKey.Backspace)
+                {
+                    // Go back to the previous menu (if any)
+                    return null;
                 }
             }
         }

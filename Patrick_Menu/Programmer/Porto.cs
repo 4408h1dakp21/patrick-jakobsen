@@ -49,13 +49,14 @@ namespace Patrick_Menu.Programmer
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("  _____          _                       _ \r\n |  __ \\        | |                     | |\r\n | |__) |__  ___| |_ _ __   ___  _ __ __| |\r\n |  ___/ _ \\/ __| __| '_ \\ / _ \\| '__/ _` |\r\n | |  | (_) \\__ \\ |_| | | | (_) | | | (_| |\r\n |_|   \\___/|___/\\__|_| |_|\\___/|_|  \\__,_|\r\n                                           \r\n                                           ");
 
+                var countryChoices = letterRates.Keys.Select(country => new Choice(country)).ToList();
                 // Prompt user to select a country
                 var countrySelector = new SelectionPrompt()
                     .Title("Vælg et land du ville sende til")
                     .TitleColor(ConsoleColor.Blue)
                     .PageSize(10)
                     .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
-                    .AddChoices(letterRates.Keys) // List all countries for letter rates
+                    .AddChoices(countryChoices) // List all countries for letter rates
                     .ChoiceColor(ConsoleColor.Green)
                     .ClearConsole(false)
                     .Prompt();
@@ -67,14 +68,19 @@ namespace Patrick_Menu.Programmer
 
                 // Prompt user to select item type (letter or package)
                 var itemTypeSelector = new SelectionPrompt()
-                    .Title("Er det et brev eller en pakke?")
-                    .TitleColor(ConsoleColor.Blue)
-                    .PageSize(2)
-                    .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
-                    .AddChoices(new[] { "brev", "pakke" }) // Letter or package
-                    .ChoiceColor(ConsoleColor.Green)
-                    .ClearConsole(false)
-                    .Prompt();
+                     .Title("Er det et brev eller en pakke?")
+                     .TitleColor(ConsoleColor.Blue)
+                     .PageSize(2)
+                     .MoreChoicesText("(Ryk op og ned for at se flere programmer)")
+                     .AddChoices(new[]
+                     {
+                    new Choice("brev"),
+                    new Choice("pakke")
+                     }) // Convert strings to Choice objects
+                     .ChoiceColor(ConsoleColor.Green)
+                     .ClearConsole(false)
+                     .Prompt();
+
 
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Blue;

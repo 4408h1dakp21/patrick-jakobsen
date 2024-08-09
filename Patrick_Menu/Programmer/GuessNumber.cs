@@ -89,9 +89,12 @@ namespace Patrick_Menu.Programmer
                 .TitleColor(ConsoleColor.Green)
                 .PageSize(10)
                 .MoreChoicesText("(Bevæg op og ned for at se flere tilstande)")
-                .AddChoices(new[] {
-                "Let (1-5)", "Normal (1-10)", "Hardcore (1-10)",
-                })
+                  .AddChoices(new[]
+                  {
+                      new Choice("Let (1-5)"),
+                      new Choice("Normal (1-10)"),
+                      new Choice("Hardcore (1-10)")
+                  })
                 .ChoiceColor(ConsoleColor.Green)
                 .ClearConsole(false) // Do not clear the console
                 .Prompt();
