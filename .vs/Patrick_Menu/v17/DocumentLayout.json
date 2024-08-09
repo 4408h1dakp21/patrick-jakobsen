@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{641E20E9-B8C9-40F5-BD14-A253CCB7C473}|ToolBox\\ToolBox.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\toolbox\\selectionprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{641E20E9-B8C9-40F5-BD14-A253CCB7C473}|ToolBox\\ToolBox.csproj|solutionrelative:toolbox\\selectionprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\patrick_menu\\programmer\\array1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F5149A2-E397-4A12-9150-E17BB5C49C09}|Patrick_Menu\\Patrick_Menu.csproj|solutionrelative:patrick_menu\\programmer\\array1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,32 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SelectionPrompt.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\ToolBox\\SelectionPrompt.cs",
-              "RelativeDocumentMoniker": "ToolBox\\SelectionPrompt.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\ToolBox\\SelectionPrompt.cs",
-              "RelativeToolTip": "ToolBox\\SelectionPrompt.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAwwKwAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T06:42:20.028Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Array1.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Array1.cs",
               "RelativeDocumentMoniker": "Patrick_Menu\\Programmer\\Array1.cs",
               "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Programmer\\Array1.cs",
               "RelativeToolTip": "Patrick_Menu\\Programmer\\Array1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAALAAAA",
+              "ViewState": "AQIAAA4AAADAODMzM7MgwCgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-09T06:39:52.788Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AppList.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Patrick_Menu\\Menu\\AppList.cs",
               "RelativeDocumentMoniker": "Patrick_Menu\\Menu\\AppList.cs",

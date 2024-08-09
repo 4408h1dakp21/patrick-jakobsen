@@ -8,7 +8,7 @@ namespace ToolBox
     {
         public string Name { get; set; }
         public List<Choice> SubChoices { get; set; }
-        public bool IsSubChoice { get; set; } // New property to indicate sub-choices
+        public bool IsSubChoice { get; set; } // Property to indicate sub-choices
 
         public Choice(string name, bool isSubChoice = false)
         {
@@ -30,16 +30,18 @@ namespace ToolBox
         private int _pageSize;
         private string _moreChoicesText;
         private bool _clearConsole;
+        private Stack<List<Choice>> _menuStack; // Stack to track previous menus
 
         public SelectionPrompt()
         {
             _choices = new List<Choice>();
             _pageSize = 10; // default page size
-            _moreChoicesText = "(Use Up/Down to navigate, Enter to select)";
+            _moreChoicesText = "(Use Up/Down to navigate, Enter to select, Backspace to go back)";
             _titleColor = ConsoleColor.White; // default title color
             _choiceColor = ConsoleColor.White; // default choice color
             _subChoiceColor = ConsoleColor.Cyan; // default color for sub-choices
             _clearConsole = true; // default behavior is to clear the console
+            _menuStack = new Stack<List<Choice>>(); // Initialize the stack
         }
 
         public SelectionPrompt Title(string title)
@@ -92,11 +94,15 @@ namespace ToolBox
 
         public string Prompt()
         {
-            return DisplayChoices(_choices);
+            // Initialize the stack with the main choices
+            _menuStack.Clear();
+            _menuStack.Push(_choices);
+            return DisplayChoices();
         }
 
-        private string DisplayChoices(List<Choice> choices)
+        private string DisplayChoices()
         {
+            var choices = _menuStack.Peek();
             int selectedIndex = 0;
             int startLine = Console.CursorTop;
 
@@ -153,10 +159,14 @@ namespace ToolBox
                 {
                     if (choices[selectedIndex].HasSubChoices)
                     {
-                        // If the selected choice has sub-choices, navigate into them
-                        var selectedSubChoice = DisplayChoices(choices[selectedIndex].SubChoices);
+                        // Push current menu to stack and display sub-choices
+                        _menuStack.Push(choices[selectedIndex].SubChoices);
+                        // Clear console for sub-choices display
+                        Console.Clear();
+                        var selectedSubChoice = DisplayChoices();
                         if (selectedSubChoice != null)
                         {
+                            // Return selected choice if not null
                             return selectedSubChoice;
                         }
                     }
@@ -165,11 +175,6 @@ namespace ToolBox
                         // Return the name of the selected choice
                         return choices[selectedIndex].Name;
                     }
-                }
-                else if (key == ConsoleKey.Backspace)
-                {
-                    // Go back to the previous menu (if any)
-                    return null;
                 }
             }
         }
