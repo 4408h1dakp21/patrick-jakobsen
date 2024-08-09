@@ -45,7 +45,11 @@ namespace Patrick_Menu.Menu
 
                 case "Array1":
                     Array1.runApp();
-                    break; 
+                    break;
+
+                case "Array2":
+                    Array2.runApp();
+                    break;
                 case "Exit":
                     Console.CursorVisible = true; // shows the cursor again before exiting, so you can use the console after the program exits
                     Program._exit = true;
