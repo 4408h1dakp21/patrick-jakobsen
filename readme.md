@@ -128,17 +128,21 @@ Console.WriteLine($"You entered the string: {stringValue}");
 Description: The `SelectionPrompt` is a handy component that allows you to add choices, a title, and more, so you can customize it as you like!
 
 ```C#
-var app = new SelectionPrompt()
-    .Title("Select a Program to Try")
-    .TitleColor(ConsoleColor.Blue)
-    .PageSize(10)
-    .MoreChoicesText("(Scroll up and down to see more programs)")
-    .AddChoices(new[] {
-        "Celsius Converter", "Currency Converter", "Volume Calculator", "Dice Roll", "Pythagorean Theorem", "Age Calculator", "Guess Number", "Exit"
-    })
-    .ChoiceColor(ConsoleColor.Green)
-    .ClearConsole(false) // Do not clear the console
-    .Prompt();
+          var App = new SelectionPrompt()
+              .Title("Vælg din spil mode:")
+              .TitleColor(ConsoleColor.Green)
+              .PageSize(10)
+              .MoreChoicesText("(Bevæg op og ned for at se flere tilstande)")
+                .AddChoices(new[]
+                {
+                    new Choice("Let (1-5)"),
+                    new Choice("Normal (1-10)"),
+                    new Choice("Hardcore (1-10)")
+                })
+              .ChoiceColor(ConsoleColor.Green)
+              .ClearConsole(false) // Do not clear the console
+              .Prompt();
+
 ```
 
 ## ConfirmPrompt
