@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\guestbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|solutionrelative:guestbook\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\guestbook\\views\\menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|solutionrelative:guestbook\\views\\menu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\guestbook\\views\\menu\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|solutionrelative:guestbook\\views\\menu\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\guestbook\\guestbook.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|solutionrelative:guestbook\\guestbook.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C525577-3195-4A1C-81B4-E8A0BFBE6EED}|ToolBox\\ToolBox.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\toolbox\\confirmprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C525577-3195-4A1C-81B4-E8A0BFBE6EED}|ToolBox\\ToolBox.csproj|solutionrelative:toolbox\\confirmprompt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,17 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Guestbook",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Guestbook.csproj",
+              "RelativeDocumentMoniker": "Guestbook\\Guestbook.csproj",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Guestbook.csproj",
+              "RelativeToolTip": "Guestbook\\Guestbook.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-12T12:02:20.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MenuView.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\MenuView.cs",
+              "RelativeDocumentMoniker": "Guestbook\\Views\\Menu\\MenuView.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\MenuView.cs",
+              "RelativeToolTip": "Guestbook\\Views\\Menu\\MenuView.cs",
+              "ViewState": "AQIAAAUAAAAAd2ZmZmYDwAcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T11:53:00.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConfirmPrompt.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\ToolBox\\ConfirmPrompt.cs",
+              "RelativeDocumentMoniker": "ToolBox\\ConfirmPrompt.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\ToolBox\\ConfirmPrompt.cs",
+              "RelativeToolTip": "ToolBox\\ConfirmPrompt.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T11:20:54.645Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Program.cs",
-              "RelativeDocumentMoniker": "Guestbook\\Program.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Program.cs",
-              "RelativeToolTip": "Guestbook\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\Program.cs",
+              "RelativeDocumentMoniker": "Guestbook\\Views\\Menu\\Program.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\Program.cs",
+              "RelativeToolTip": "Guestbook\\Views\\Menu\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T11:12:20.765Z",
               "EditorCaption": ""

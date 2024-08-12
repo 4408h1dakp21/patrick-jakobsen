@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="ToolBox">
+      <HintPath>..\ToolBox\bin\Debug\net8.0\ToolBox.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
+
 </Project>
