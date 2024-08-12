@@ -11,7 +11,7 @@ namespace Patrick_Menu.Menu
             while (!_exit)
             {
                 Console.Clear();
-                Console.OutputEncoding = Encoding.UTF8; // add support for æ/ø/å
+                Console.OutputEncoding = Encoding.UTF8; // added support for æ/ø/å
                 MenuView.showMenu();
             }
         }

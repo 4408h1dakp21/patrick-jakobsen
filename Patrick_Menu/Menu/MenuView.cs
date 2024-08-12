@@ -28,9 +28,9 @@ namespace Patrick_Menu.Menu
                     SubChoices = new List<Choice>
                     {
                         new Choice("Array1"),
-                        new Choice("Array2"),
-                        new Choice("Array3"),
-                        new Choice("Array4")
+                        new Choice("Login"),
+                        new Choice("Name Search"),
+                        new Choice("StatistikProgram")
                     }
                 },
                 new Choice("Alder"),

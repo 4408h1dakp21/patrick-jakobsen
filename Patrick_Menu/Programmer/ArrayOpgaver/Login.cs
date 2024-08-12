@@ -2,9 +2,9 @@
 using System.Linq;
 using ToolBox;
 
-namespace Patrick_Menu.Programmer
+namespace Patrick_Menu.Programmer.ArrayOpgaver
 {
-    internal class Array2
+    internal class Login
     {
         public static void runApp()
         {

@@ -1,4 +1,5 @@
 ﻿using Patrick_Menu.Programmer;
+using Patrick_Menu.Programmer.ArrayOpgaver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,9 +48,18 @@ namespace Patrick_Menu.Menu
                     Array1.runApp();
                     break;
 
-                case "Array2":
-                    Array2.runApp();
+                case "Login":
+                    Login.runApp();
                     break;
+
+                case "Name Search":
+                    NameSearch.runApp();
+                    break;
+
+                case "StatistikProgram":
+                    StatistikProgram.runApp();
+                    break;
+
                 case "Exit":
                     Console.CursorVisible = true; // shows the cursor again before exiting, so you can use the console after the program exits
                     Program._exit = true;

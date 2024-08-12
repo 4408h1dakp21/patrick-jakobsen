@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Patrick_Menu.Programmer
+namespace Patrick_Menu.Programmer.ArrayOpgaver
 {
     internal class Array1
     {
         public static void runApp()
         {
-            int[] array  = new int[9];
+            int[] array = new int[9];
 
             // Indsæt tallene 1-9 ved hjælp af en løkke
             for (int i = 0; i < 9; i++)
