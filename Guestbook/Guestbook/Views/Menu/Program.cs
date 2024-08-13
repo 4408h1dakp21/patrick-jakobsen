@@ -1,5 +1,4 @@
-﻿using ToolBox;
-using System.Text;
+﻿using System.Text;
 
 namespace Guestbook.Views.Menu
 
@@ -7,11 +6,12 @@ namespace Guestbook.Views.Menu
     internal class Program
     {
 
+
+
         public static bool _exit = false;
 
         static void Main(string[] args)
         {
-
             while (!_exit)
             {
 
@@ -21,9 +21,6 @@ namespace Guestbook.Views.Menu
                 MenuView.showMenu();
 
             }
-
-
-
         }
     }
 }

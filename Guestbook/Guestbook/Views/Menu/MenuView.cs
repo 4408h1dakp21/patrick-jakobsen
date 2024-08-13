@@ -29,6 +29,11 @@ namespace Guestbook.Views.Menu
                 .ClearConsole(false) // Do not clear the console
                 .Prompt();
 
+            NavigationList.run(App);
+
+
+
+                
 
 
         }

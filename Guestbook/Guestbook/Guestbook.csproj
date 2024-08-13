@@ -14,7 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Config\" />
     <Folder Include="Views\Admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Config\users.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\users.csv</TargetPath>
+    </None>
   </ItemGroup>
 
 </Project>
