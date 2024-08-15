@@ -9,6 +9,7 @@ namespace ToolBox
         private string _promptText;
         private Func<string, (bool isValid, T value)> _validationFunc;
         private T _defaultValue;
+        private bool _isPassword;
 
         public UserInput()
         {
@@ -35,6 +36,12 @@ namespace ToolBox
             return this;
         }
 
+        public UserInput<T> AsPassword()
+        {
+            _isPassword = true;
+            return this;
+        }
+
         public T GetInput()
         {
             while (true)
@@ -43,8 +50,7 @@ namespace ToolBox
                 Console.WriteLine(_title);
                 Console.ResetColor();
 
-                Console.Write(_promptText);
-                string input = Console.ReadLine();
+                string input = ReadInput();
 
                 if (string.IsNullOrWhiteSpace(input) && !Equals(_defaultValue, default(T)))
                 {
@@ -59,6 +65,48 @@ namespace ToolBox
 
                 Console.WriteLine("Invalid input. Please try again.");
             }
+        }
+
+        private string ReadInput()
+        {
+            if (_isPassword)
+            {
+                return ReadPassword();
+            }
+            else
+            {
+                Console.Write(_promptText);
+                return Console.ReadLine();
+            }
+        }
+
+        private string ReadPassword()
+        {
+            Console.Write(_promptText);
+            string input = string.Empty;
+            while (true)
+            {
+                var keyInfo = Console.ReadKey(intercept: true);
+                if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                    break;
+                }
+                else if (keyInfo.Key == ConsoleKey.Backspace)
+                {
+                    if (input.Length > 0)
+                    {
+                        input = input.Substring(0, input.Length - 1);
+                        Console.Write("\b \b"); // Remove last character from the console
+                    }
+                }
+                else
+                {
+                    input += keyInfo.KeyChar;
+                    Console.Write("*"); // Display asterisk instead of actual character
+                }
+            }
+            return input;
         }
     }
 }

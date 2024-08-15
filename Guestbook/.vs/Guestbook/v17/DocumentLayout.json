@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\guestbook\\views\\auth\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|solutionrelative:guestbook\\views\\auth\\signin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C525577-3195-4A1C-81B4-E8A0BFBE6EED}|ToolBox\\ToolBox.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\toolbox\\userinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C525577-3195-4A1C-81B4-E8A0BFBE6EED}|ToolBox\\ToolBox.csproj|solutionrelative:toolbox\\userinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C525577-3195-4A1C-81B4-E8A0BFBE6EED}|ToolBox\\ToolBox.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\toolbox\\toolbox.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2C525577-3195-4A1C-81B4-E8A0BFBE6EED}|ToolBox\\ToolBox.csproj|solutionrelative:toolbox\\toolbox.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|c:\\users\\patrickjakobsen\\source\\repos\\patrick_menu\\guestbook\\guestbook\\views\\admin\\commentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05926902-890F-471F-9D0D-805088BD0823}|Guestbook\\Guestbook.csproj|solutionrelative:guestbook\\views\\admin\\commentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,19 +59,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SignIn.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Auth\\SignIn.cs",
+              "RelativeDocumentMoniker": "Guestbook\\Views\\Auth\\SignIn.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Auth\\SignIn.cs",
+              "RelativeToolTip": "Guestbook\\Views\\Auth\\SignIn.cs",
+              "ViewState": "AQIAABIAAADAODMzM7MRwBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T07:36:08.438Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserInput.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\ToolBox\\UserInput.cs",
+              "RelativeDocumentMoniker": "ToolBox\\UserInput.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\ToolBox\\UserInput.cs",
+              "RelativeToolTip": "ToolBox\\UserInput.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAIwGMAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T07:35:13.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ToolBox",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\ToolBox\\ToolBox.csproj",
+              "RelativeDocumentMoniker": "ToolBox\\ToolBox.csproj",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\ToolBox\\ToolBox.csproj",
+              "RelativeToolTip": "ToolBox\\ToolBox.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-15T07:35:10.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CommentsView.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Admin\\CommentsView.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Admin\\CommentsView.cs",
-              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Admin\\CommentsView.cs*",
-              "RelativeToolTip": "Guestbook\\Views\\Admin\\CommentsView.cs*",
-              "ViewState": "AQIAAB0AAAAAKTMzM3MmwC4AAAApAAAA",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Admin\\CommentsView.cs",
+              "RelativeToolTip": "Guestbook\\Views\\Admin\\CommentsView.cs",
+              "ViewState": "AQIAABwAAAAAWmZmZuYbwCYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-15T07:09:58.814Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "MenuView.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\MenuView.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Menu\\MenuView.cs",
@@ -72,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "UsersView.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Admin\\UsersView.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Admin\\UsersView.cs",
@@ -85,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AdminView.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Admin\\AdminView.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Admin\\AdminView.cs",
@@ -98,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\Program.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Menu\\Program.cs",
@@ -111,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MainView.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Main\\MainView.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Main\\MainView.cs",
@@ -124,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "NavigationList.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Views\\Menu\\NavigationList.cs",
               "RelativeDocumentMoniker": "Guestbook\\Views\\Menu\\NavigationList.cs",
@@ -137,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "AuthManager.cs",
               "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Patrick_Menu\\Guestbook\\Guestbook\\Models\\AuthManager.cs",
               "RelativeDocumentMoniker": "Guestbook\\Models\\AuthManager.cs",

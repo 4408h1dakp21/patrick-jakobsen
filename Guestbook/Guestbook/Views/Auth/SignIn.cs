@@ -33,7 +33,8 @@ namespace Guestbook.Views.Auth
                .Prompt(
                    promptText: "Indtast dit password: ",
                    validationFunc: input => (true, input) // Always valid for strings
-               );
+               )
+               .AsPassword();
 
             string password = passwordInput.GetInput();
 
