@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Config\" />
-    <Folder Include="Views\Admin\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Config\comments.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Config\users.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\users.csv</TargetPath>

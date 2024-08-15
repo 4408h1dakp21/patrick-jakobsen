@@ -32,7 +32,6 @@ namespace Guestbook.Views.Menu
             NavigationList.run(App);
 
 
-
                 
 
 
