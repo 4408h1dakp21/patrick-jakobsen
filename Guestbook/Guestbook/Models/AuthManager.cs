@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using ToolBox;
 
 public class AuthManager
 {
@@ -142,7 +143,16 @@ public class AuthManager
                 if (attempts > 0)
                 {
                     Console.WriteLine($"Forkert adgangskode. Du har {attempts} forsøg tilbage.");
-                    password = Console.ReadLine();
+                    var passwordInput = new UserInput<string>()
+                        .Title("")
+                        .TitleColor(ConsoleColor.Green)
+                        .Prompt(
+                            promptText: "Indtast dit kodeord: ",
+                            validationFunc: input => (true, input) // Altid gyldig for strenge
+                        )
+                        .AsPassword();
+
+                    password = passwordInput.GetInput();
                 }
             }
         }
