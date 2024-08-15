@@ -6,15 +6,15 @@ namespace Guestbook.Views.Auth
     {
         public static void run()
         {
-            var authManger = new AuthManager();
+            var authManager = new AuthManager();
 
             var email = new UserInput<string>()
-             .Title("")
-             .TitleColor(ConsoleColor.Green)
-             .Prompt(
-                 promptText: "Indtast din email: ",
-                 validationFunc: input => (true, input) // Always valid for strings
-             );
+                .Title("")
+                .TitleColor(ConsoleColor.Green)
+                .Prompt(
+                    promptText: "Indtast din email: ",
+                    validationFunc: input => (true, input) // Altid gyldig for strenge
+                );
 
             string _email = email.GetInput();
 
@@ -22,26 +22,23 @@ namespace Guestbook.Views.Auth
                 .Title("")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Indtast dit ønskede username: ",
-                    validationFunc: input => (true, input) // Always valid for strings
+                    promptText: "Indtast dit ønskede brugernavn: ",
+                    validationFunc: input => (true, input) // Altid gyldig for strenge
                 );
 
             string _username = username.GetInput();
-
 
             var password = new UserInput<string>()
                 .Title("")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Indtast dit ønskede password:  ",
-                    validationFunc: input => (true, input) // Always valid for strings
+                    promptText: "Indtast dit ønskede kodeord: ",
+                    validationFunc: input => (true, input) // Altid gyldig for strenge
                 );
 
             string _password = password.GetInput();
 
-
-
-            authManger.SignUp(_email, _username, _password);
+            authManager.SignUp(_email, _username, _password);
 
             Console.ReadKey();
         }

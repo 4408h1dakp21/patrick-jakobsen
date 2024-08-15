@@ -15,19 +15,19 @@ namespace Guestbook.Views.Admin
             {
                 Console.Clear();
 
-                // Using SelectionPrompt for menu
+                // Brug af SelectionPrompt til menuen
                 var menu = new SelectionPrompt()
-                    .Title("Admin User Management:")
+                    .Title("Admin Brugeradministration:")
                     .TitleColor(ConsoleColor.Cyan)
                     .PageSize(10)
-                    .MoreChoicesText("(Use up and down arrow keys to navigate)")
+                    .MoreChoicesText("(Brug op- og ned-piletasterne for at navigere)")
                     .AddChoices(new[]
                     {
-                        new Choice("Add Admin"),
-                        new Choice("Delete User"),
-                        new Choice("Modify User Information"),
-                        new Choice("List Users"),
-                        new Choice("Exit")
+                        new Choice("Tilføj Admin"),
+                        new Choice("Slet Bruger"),
+                        new Choice("Ændr Brugeroplysninger"),
+                        new Choice("Liste over Brugere"),
+                        new Choice("Afslut")
                     })
                     .ChoiceColor(ConsoleColor.Green)
                     .ClearConsole(false);
@@ -36,19 +36,19 @@ namespace Guestbook.Views.Admin
 
                 switch (selectedOption)
                 {
-                    case "Add Admin":
+                    case "Tilføj Admin":
                         AddAdmin();
                         break;
-                    case "Delete User":
+                    case "Slet Bruger":
                         DeleteUser();
                         break;
-                    case "Modify User Information":
+                    case "Ændr Brugeroplysninger":
                         ModifyUser();
                         break;
-                    case "List Users":
+                    case "Liste over Brugere":
                         ListUsers();
                         break;
-                    case "Exit":
+                    case "Afslut":
                         AdminView.run();
                         break;
                 }
@@ -58,61 +58,61 @@ namespace Guestbook.Views.Admin
         private static void AddAdmin()
         {
             Console.Clear();
-            Console.WriteLine("Add Admin:");
+            Console.WriteLine("Tilføj Admin:");
 
             var emailInput = new UserInput<string>()
-                .Title("Enter email:")
+                .Title("Indtast email:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the admin email: ",
+                    promptText: "Indtast admin email: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string email = emailInput.GetInput();
 
             var usernameInput = new UserInput<string>()
-                .Title("Enter username:")
+                .Title("Indtast brugernavn:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the admin username: ",
+                    promptText: "Indtast admin brugernavn: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string username = usernameInput.GetInput();
 
             var passwordInput = new UserInput<string>()
-                .Title("Enter password:")
+                .Title("Indtast kodeord:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the admin password: ",
+                    promptText: "Indtast admin kodeord: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string password = passwordInput.GetInput();
 
             authManager.SignUpAdmin(email, username, password);
-            Console.WriteLine("Admin added successfully!");
+            Console.WriteLine("Admin tilføjet succesfuldt!");
             Console.ReadKey();
         }
 
         private static void DeleteUser()
         {
             Console.Clear();
-            Console.WriteLine("Delete User:");
+            Console.WriteLine("Slet Bruger:");
 
             var emailInput = new UserInput<string>()
-                .Title("Enter the email of the user to delete:")
+                .Title("Indtast email på den bruger, der skal slettes:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the user's email: ",
+                    promptText: "Indtast brugerens email: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string email = emailInput.GetInput();
 
             if (authManager.DeleteUser(email))
             {
-                Console.WriteLine("User deleted successfully!");
+                Console.WriteLine("Bruger slettet succesfuldt!");
             }
             else
             {
-                Console.WriteLine("User not found.");
+                Console.WriteLine("Bruger ikke fundet.");
             }
             Console.ReadKey();
         }
@@ -120,13 +120,13 @@ namespace Guestbook.Views.Admin
         private static void ModifyUser()
         {
             Console.Clear();
-            Console.WriteLine("Modify User Information:");
+            Console.WriteLine("Ændr Brugeroplysninger:");
 
             var emailInput = new UserInput<string>()
-                .Title("Enter the email of the user to modify:")
+                .Title("Indtast email på den bruger, der skal ændres:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the user's email: ",
+                    promptText: "Indtast brugerens email: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string email = emailInput.GetInput();
@@ -134,36 +134,36 @@ namespace Guestbook.Views.Admin
             var user = authManager.GetUser(email);
             if (user == null)
             {
-                Console.WriteLine("User not found.");
+                Console.WriteLine("Bruger ikke fundet.");
                 Console.ReadKey();
                 return;
             }
 
             var newUsernameInput = new UserInput<string>()
-                .Title($"Current Username: {user.Username}")
+                .Title($"Nuværende Brugernavn: {user.Username}")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Enter new username (or press enter to keep current): ",
+                    promptText: "Indtast nyt brugernavn (eller tryk enter for at beholde det nuværende): ",
                     validationFunc: input => (true, input)
                 );
             string newUsername = newUsernameInput.GetInput();
             user.Username = !string.IsNullOrEmpty(newUsername) ? newUsername : user.Username;
 
             var newPasswordInput = new UserInput<string>()
-                .Title("Enter new password (or press enter to keep current):")
+                .Title("Indtast nyt kodeord (eller tryk enter for at beholde det nuværende):")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Enter new password: ",
+                    promptText: "Indtast nyt kodeord: ",
                     validationFunc: input => (true, input)
                 );
             string newPassword = newPasswordInput.GetInput();
             user.Password = !string.IsNullOrEmpty(newPassword) ? newPassword : user.Password;
 
             var newPermissionInput = new UserInput<int>()
-                .Title($"Current Permission: {(user.PermissionFlag == 1 ? "Admin" : "User")}")
+                .Title($"Nuværende Tilladelse: {(user.PermissionFlag == 1 ? "Admin" : "Bruger")}")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Enter new permission (1 for Admin, 0 for User): ",
+                    promptText: "Indtast ny tilladelse (1 for Admin, 0 for Bruger): ",
                     validationFunc: input =>
                     {
                         bool isValid = int.TryParse(input, out var value) && (value == 0 || value == 1);
@@ -173,18 +173,18 @@ namespace Guestbook.Views.Admin
             user.PermissionFlag = newPermissionInput.GetInput();
 
             authManager.UpdateUser(user);
-            Console.WriteLine("User information updated successfully!");
+            Console.WriteLine("Brugeroplysninger opdateret succesfuldt!");
             Console.ReadKey();
         }
 
         private static void ListUsers()
         {
             Console.Clear();
-            Console.WriteLine("List of Users:");
+            Console.WriteLine("Liste over Brugere:");
             var users = authManager.GetUsers();
             foreach (var user in users)
             {
-                Console.WriteLine($"Username: {user.Username}, Email: {user.Email}, Permission: {(user.PermissionFlag == 1 ? "Admin" : "User")}");
+                Console.WriteLine($"Brugernavn: {user.Username}, Email: {user.Email}, Tilladelse: {(user.PermissionFlag == 1 ? "Admin" : "Bruger")}");
             }
             Console.ReadKey();
         }

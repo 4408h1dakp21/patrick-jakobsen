@@ -18,12 +18,12 @@ public class User
 
     public string ToCsvString()
     {
-        return $"{Username},{Password},{Email},{PermissionFlag}";
+        return $"{Username};{Password};{Email};{PermissionFlag}";
     }
 
     public static User FromCsvString(string csvLine)
     {
-        string[] parts = csvLine.Split(',');
+        string[] parts = csvLine.Split(';');
         if (parts.Length == 4)
         {
             return new User(parts[0], parts[1], parts[2], int.Parse(parts[3]));

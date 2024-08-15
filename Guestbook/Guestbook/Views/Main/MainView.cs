@@ -17,20 +17,20 @@ namespace Guestbook.Views.Main
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine($"Welcome to the Guestbook, {Program.username}!");
+                Console.WriteLine($"Velkommen til gæstebogen, {Program.username}!");
 
                 var menu = new SelectionPrompt()
-                    .Title("What would you like to do?")
+                    .Title("Hvad vil du gerne gøre?")
                     .TitleColor(ConsoleColor.Cyan)
                     .PageSize(10)
-                    .MoreChoicesText("(Use up and down arrow keys to navigate)")
+                    .MoreChoicesText("(Brug op- og nedpiletasterne til at navigere)")
                     .AddChoices(new[]
                     {
-                        new Choice("Show all comments"),
-                        new Choice("Add Comment"),
-                        new Choice("View My Comments"),
-                        new Choice("Edit My Comments"),
-                        new Choice("Exit")
+                        new Choice("Vis alle kommentarer"),
+                        new Choice("Tilføj kommentar"),
+                        new Choice("Se mine kommentarer"),
+                        new Choice("Rediger mine kommentarer"),
+                        new Choice("Afslut")
                     })
                     .ChoiceColor(ConsoleColor.Green)
                     .ClearConsole(false);
@@ -39,19 +39,19 @@ namespace Guestbook.Views.Main
 
                 switch (selectedOption)
                 {
-                    case "Show all comments":
+                    case "Vis alle kommentarer":
                         ViewAllComments();
                         break;
-                    case "Add Comment":
+                    case "Tilføj kommentar":
                         AddComment();
                         break;
-                    case "View My Comments":
+                    case "Se mine kommentarer":
                         ViewMyComments();
                         break;
-                    case "Edit My Comments":
+                    case "Rediger mine kommentarer":
                         EditMyComments();
                         break;
-                    case "Exit":
+                    case "Afslut":
                         comments.Clear();
                         return;
                 }
@@ -92,22 +92,22 @@ namespace Guestbook.Views.Main
         private static void AddComment()
         {
             Console.Clear();
-            Console.WriteLine("Add Comment:");
+            Console.WriteLine("Tilføj kommentar:");
 
             var titleInput = new UserInput<string>()
-                .Title("Enter title:")
+                .Title("Indtast titel:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the comment title: ",
+                    promptText: "Indtast kommentarens titel: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string title = titleInput.GetInput();
 
             var descriptionInput = new UserInput<string>()
-                .Title("Enter description:")
+                .Title("Indtast beskrivelse:")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Please enter the comment description: ",
+                    promptText: "Indtast kommentarens beskrivelse: ",
                     validationFunc: input => (!string.IsNullOrEmpty(input), input)
                 );
             string description = descriptionInput.GetInput();
@@ -116,27 +116,27 @@ namespace Guestbook.Views.Main
             comments.Add(newComment);
             SaveComment(newComment);
 
-            Console.WriteLine("Comment added successfully!");
+            Console.WriteLine("Kommentar tilføjet succesfuldt!");
             Console.ReadKey();
         }
 
         private static void ViewAllComments()
         {
             Console.Clear();
-            Console.WriteLine("Comments:");
+            Console.WriteLine("Kommentarer:");
 
             var allComments = comments;
             if (allComments.Count == 0)
             {
-                Console.WriteLine("There is no comments.");
+                Console.WriteLine("Der er ingen kommentarer.");
             }
             else
             {
                 foreach (var comment in allComments)
                 {
                     Console.WriteLine("-------------------------------");
-                    Console.WriteLine($"Title: {comment.Title}");
-                    Console.WriteLine($"Description: {comment.Description}");
+                    Console.WriteLine($"Titel: {comment.Title}");
+                    Console.WriteLine($"Beskrivelse: {comment.Description}");
                     Console.WriteLine("-------------------------------");
                 }
             }
@@ -146,20 +146,20 @@ namespace Guestbook.Views.Main
         private static void ViewMyComments()
         {
             Console.Clear();
-            Console.WriteLine("My Comments:");
+            Console.WriteLine("Mine kommentarer:");
 
             var myComments = comments.FindAll(c => c.UserEmail == Program.email);
             if (myComments.Count == 0)
             {
-                Console.WriteLine("You have no comments.");
+                Console.WriteLine("Du har ingen kommentarer.");
             }
             else
             {
                 foreach (var comment in myComments)
                 {
                     Console.WriteLine("-------------------------------");
-                    Console.WriteLine($"Title: {comment.Title}");
-                    Console.WriteLine($"Description: {comment.Description}");
+                    Console.WriteLine($"Titel: {comment.Title}");
+                    Console.WriteLine($"Beskrivelse: {comment.Description}");
                     Console.WriteLine("-------------------------------");
                 }
             }
@@ -169,25 +169,25 @@ namespace Guestbook.Views.Main
         private static void EditMyComments()
         {
             Console.Clear();
-            Console.WriteLine("Edit My Comments:");
+            Console.WriteLine("Rediger mine kommentarer:");
 
             var myComments = comments.FindAll(c => c.UserEmail == Program.email);
             if (myComments.Count == 0)
             {
-                Console.WriteLine("You have no comments.");
+                Console.WriteLine("Du har ingen kommentarer.");
                 Console.ReadKey();
                 return;
             }
 
-            // Convert the list of comment titles into a list of Choice objects
+            // Konverter listen af kommentar titler til en liste af Choice objekter
             var commentChoices = myComments.Select(c => new Choice(c.Title)).ToList();
 
             var selectionPrompt = new SelectionPrompt()
-                .Title("Select a comment to edit:")
+                .Title("Vælg en kommentar at redigere:")
                 .TitleColor(ConsoleColor.Cyan)
                 .PageSize(10)
-                .MoreChoicesText("(Use up and down arrow keys to navigate)")
-                .AddChoices(commentChoices) // Pass the list of Choice objects here
+                .MoreChoicesText("(Brug op- og nedpiletasterne til at navigere)")
+                .AddChoices(commentChoices) // Send listen af Choice objekter her
                 .ChoiceColor(ConsoleColor.Green)
                 .ClearConsole(false);
 
@@ -196,33 +196,33 @@ namespace Guestbook.Views.Main
 
             if (selectedComment == null)
             {
-                Console.WriteLine("Comment not found.");
+                Console.WriteLine("Kommentar ikke fundet.");
                 Console.ReadKey();
                 return;
             }
 
             var newTitleInput = new UserInput<string>()
-                .Title($"Current Title: {selectedComment.Title}")
+                .Title($"Nuværende titel: {selectedComment.Title}")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Enter new title (or press enter to keep current): ",
+                    promptText: "Indtast ny titel (eller tryk enter for at beholde den nuværende): ",
                     validationFunc: input => (true, input)
                 );
             string newTitle = newTitleInput.GetInput();
             selectedComment.Title = !string.IsNullOrEmpty(newTitle) ? newTitle : selectedComment.Title;
 
             var newDescriptionInput = new UserInput<string>()
-                .Title("Enter new description (or press enter to keep current):")
+                .Title("Indtast ny beskrivelse (eller tryk enter for at beholde den nuværende):")
                 .TitleColor(ConsoleColor.Green)
                 .Prompt(
-                    promptText: "Enter new description: ",
+                    promptText: "Indtast ny beskrivelse: ",
                     validationFunc: input => (true, input)
                 );
             string newDescription = newDescriptionInput.GetInput();
             selectedComment.Description = !string.IsNullOrEmpty(newDescription) ? newDescription : selectedComment.Description;
 
             UpdateCommentsFile();
-            Console.WriteLine("Comment updated successfully!");
+            Console.WriteLine("Kommentar opdateret succesfuldt!");
             Console.ReadKey();
         }
     }
@@ -242,12 +242,12 @@ namespace Guestbook.Views.Main
 
         public string ToCsvString()
         {
-            return $"{UserEmail},{Title},{Description}";
+            return $"{UserEmail};{Title};{Description}";
         }
 
         public static Comment FromCsvString(string csvLine)
         {
-            string[] values = csvLine.Split(',');
+            string[] values = csvLine.Split(';');
             if (values.Length < 3) return null;
 
             return new Comment(values[0], values[1], values[2]);

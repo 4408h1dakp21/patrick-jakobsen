@@ -4,6 +4,7 @@ using Guestbook.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
 public class AuthManager
 {
@@ -48,9 +49,21 @@ public class AuthManager
 
     public void SignUp(string email, string username, string password)
     {
+        if (!IsValidEmail(email))
+        {
+            Console.WriteLine("Ugyldigt emailformat.");
+            return;
+        }
+
+        if (!IsValidPassword(password))
+        {
+            Console.WriteLine("Adgangskode opfylder ikke kravene.");
+            return;
+        }
+
         if (users.Exists(u => u.Email == email))
         {
-            Console.WriteLine("Email already exists.");
+            Console.WriteLine("Emailen eksisterer allerede.");
             return;
         }
 
@@ -58,14 +71,26 @@ public class AuthManager
         users.Add(newUser);
         SaveUser(newUser);
 
-        Console.WriteLine("User signed up successfully!");
+        Console.WriteLine("Bruger tilmeldt succesfuldt!");
     }
 
     public void SignUpAdmin(string email, string username, string password)
     {
+        if (!IsValidEmail(email))
+        {
+            Console.WriteLine("Ugyldigt emailformat.");
+            return;
+        }
+
+        if (!IsValidPassword(password))
+        {
+            Console.WriteLine("Adgangskode opfylder ikke kravene.");
+            return;
+        }
+
         if (users.Exists(u => u.Email == email))
         {
-            Console.WriteLine("Email already exists.");
+            Console.WriteLine("Emailen eksisterer allerede.");
             return;
         }
 
@@ -73,37 +98,57 @@ public class AuthManager
         users.Add(newUser);
         SaveUser(newUser);
 
-        Console.WriteLine("Admin signed up successfully!");
+        Console.WriteLine("Administrator tilmeldt succesfuldt!");
     }
 
     public User SignIn(string email, string password)
     {
-        User user = users.Find(u => u.Email == email && u.Password == password);
+        User user = users.Find(u => u.Email == email);
         if (user == null)
         {
-            Console.WriteLine("Invalid email or password.");
+            Console.WriteLine("Ugyldig email.");
             return null;
         }
 
-        Program.username = user.Username;
-        Program.password = user.Password;
-        Program.email = user.Email;
-
-        Program.isAuth = true;
-
-        if (user.PermissionFlag == 1)
+        // Allow up to 3 attempts to enter the correct password
+        int attempts = 3;
+        while (attempts > 0)
         {
-            Program.isAdmin = true;
-            AdminView.run();
-        }
-        else
-        {
-            Program.isAdmin = false;
-            Program.isAuth = true;
-            MainView.run();
+            if (user.Password == password)
+            {
+                Program.username = user.Username;
+                Program.password = user.Password;
+                Program.email = user.Email;
+
+                Program.isAuth = true;
+
+                if (user.PermissionFlag == 1)
+                {
+                    Program.isAdmin = true;
+                    AdminView.run();
+                }
+                else
+                {
+                    Program.isAdmin = false;
+                    Program.isAuth = true;
+                    MainView.run();
+                }
+
+                return user;
+            }
+            else
+            {
+                attempts--;
+                if (attempts > 0)
+                {
+                    Console.WriteLine($"Forkert adgangskode. Du har {attempts} forsøg tilbage.");
+                    password = Console.ReadLine();
+                }
+            }
         }
 
-        return user;
+        Console.WriteLine("For mange mislykkede forsøg. Kontoen er låst.");
+        return null;
     }
 
     public bool DeleteUser(string email)
@@ -134,5 +179,19 @@ public class AuthManager
     public List<User> GetUsers()
     {
         return users;
+    }
+
+    // Validation methods
+    private bool IsValidEmail(string email)
+    {
+        // Basic email validation regex
+        var emailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        return emailRegex.IsMatch(email);
+    }
+
+    private bool IsValidPassword(string password)
+    {
+        // Password must be at least 6 characters long
+        return password.Length >= 6;
     }
 }

@@ -17,18 +17,18 @@ namespace Guestbook.Views.Admin
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Admin - Manage Comments:");
+                Console.WriteLine("Admin - Administrer Kommentarer:");
 
                 var menu = new SelectionPrompt()
-                    .Title("What would you like to do?")
+                    .Title("Hvad vil du gerne gøre?")
                     .TitleColor(ConsoleColor.Cyan)
                     .PageSize(10)
-                    .MoreChoicesText("(Use up and down arrow keys to navigate)")
+                    .MoreChoicesText("(Brug op- og ned-piletasterne for at navigere)")
                     .AddChoices(new[]
                     {
-                        new Choice("View All Comments"),
-                        new Choice("Delete a Comment"),
-                        new Choice("Exit")
+                        new Choice("Vis Alle Kommentarer"),
+                        new Choice("Slet en Kommentar"),
+                        new Choice("Afslut")
                     })
                     .ChoiceColor(ConsoleColor.Green)
                     .ClearConsole(false);
@@ -37,13 +37,13 @@ namespace Guestbook.Views.Admin
 
                 switch (selectedOption)
                 {
-                    case "View All Comments":
+                    case "Vis Alle Kommentarer":
                         ViewAllComments();
                         break;
-                    case "Delete a Comment":
+                    case "Slet en Kommentar":
                         DeleteComment();
                         break;
-                    case "Exit":
+                    case "Afslut":
                         comments.Clear();
                         return;
                 }
@@ -78,63 +78,63 @@ namespace Guestbook.Views.Admin
         private static void ViewAllComments()
         {
             Console.Clear();
-            Console.WriteLine("All Comments:");
+            Console.WriteLine("Alle Kommentarer:");
 
             if (comments.Count == 0)
             {
-                Console.WriteLine("No comments available.");
+                Console.WriteLine("Ingen kommentarer tilgængelige.");
             }
             else
             {
                 foreach (var comment in comments)
                 {
-                    Console.WriteLine($"User Email: {comment.UserEmail}");
-                    Console.WriteLine($"Title: {comment.Title}");
-                    Console.WriteLine($"Description: {comment.Description}");
+                    Console.WriteLine($"Bruger Email: {comment.UserEmail}");
+                    Console.WriteLine($"Titel: {comment.Title}");
+                    Console.WriteLine($"Beskrivelse: {comment.Description}");
                     Console.WriteLine("-------------------------------");
                 }
             }
-            Console.WriteLine("Press any key to return to the menu.");
+            Console.WriteLine("Tryk på en vilkårlig tast for at vende tilbage til menuen.");
             Console.ReadKey();
         }
 
         private static void DeleteComment()
         {
             Console.Clear();
-            Console.WriteLine("Delete a Comment:");
+            Console.WriteLine("Slet en Kommentar:");
 
             if (comments.Count == 0)
             {
-                Console.WriteLine("No comments available to delete.");
+                Console.WriteLine("Ingen kommentarer tilgængelige at slette.");
                 Console.ReadKey();
                 return;
             }
 
-            // Convert the list of comment titles into a list of Choice objects
-            var commentChoices = comments.Select(c => new Choice($"{c.Title} (by {c.UserEmail})")).ToList();
+            // Konverter listen af kommentar titler til en liste af Choice objekter
+            var commentChoices = comments.Select(c => new Choice($"{c.Title} (af {c.UserEmail})")).ToList();
 
             var selectionPrompt = new SelectionPrompt()
-                .Title("Select a comment to delete:")
+                .Title("Vælg en kommentar at slette:")
                 .TitleColor(ConsoleColor.Cyan)
                 .PageSize(10)
-                .MoreChoicesText("(Use up and down arrow keys to navigate)")
+                .MoreChoicesText("(Brug op- og ned-piletasterne for at navigere)")
                 .AddChoices(commentChoices)
                 .ChoiceColor(ConsoleColor.Green)
                 .ClearConsole(false);
 
             string selectedChoice = selectionPrompt.Prompt();
-            var selectedComment = comments.FirstOrDefault(c => $"{c.Title} (by {c.UserEmail})" == selectedChoice);
+            var selectedComment = comments.FirstOrDefault(c => $"{c.Title} (af {c.UserEmail})" == selectedChoice);
 
             if (selectedComment == null)
             {
-                Console.WriteLine("Comment not found.");
+                Console.WriteLine("Kommentar ikke fundet.");
                 Console.ReadKey();
                 return;
             }
 
             var confirmPrompt = new ConfirmPrompt()
-                .PromptMessage("Are you sure you want to delete this comment?")
-                .WarningMessage("This action cannot be undone.")
+                .PromptMessage("Er du sikker på, at du vil slette denne kommentar?")
+                .WarningMessage("Denne handling kan ikke fortrydes.")
                 .WarningColor(ConsoleColor.Red)
                 .defaultAccept("n")
                 .PromptColor(ConsoleColor.Yellow);
@@ -143,11 +143,11 @@ namespace Guestbook.Views.Admin
             {
                 comments.Remove(selectedComment);
                 SaveCommentsToFile();
-                Console.WriteLine("Comment deleted successfully!");
+                Console.WriteLine("Kommentar slettet succesfuldt!");
             }
             else
             {
-                Console.WriteLine("Deletion cancelled.");
+                Console.WriteLine("Sletning annulleret.");
             }
             Console.ReadKey();
         }
@@ -168,12 +168,12 @@ namespace Guestbook.Views.Admin
 
         public string ToCsvString()
         {
-            return $"{UserEmail},{Title},{Description}";
+            return $"{UserEmail};{Title};{Description}";
         }
 
         public static Comment FromCsvString(string csvLine)
         {
-            string[] values = csvLine.Split(',');
+            string[] values = csvLine.Split(';');
             if (values.Length < 3) return null;
 
             return new Comment(values[0], values[1], values[2]);

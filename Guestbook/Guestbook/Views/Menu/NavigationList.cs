@@ -9,15 +9,15 @@ namespace Guestbook.Views.Menu
 
             switch (Route)
             {
-                case "Sign In":
+                case "Log ind":
                     SignIn.run();
                     break;
 
-                case "Sign Up":
+                case "Opret bruger":
                     SignUp.run();
                     break;
 
-                    // Admin
+                // Admin
 
                 case "Bruger kontrol":
                     if (Program.isAuth && Program.isAdmin)
@@ -26,18 +26,18 @@ namespace Guestbook.Views.Menu
                     }
                     else
                     {
-                        Console.WriteLine("You need to be signed in to access this page.");
+                        Console.WriteLine("Du skal være logget ind for at få adgang til denne side.");
                     }
                     break;
 
-                case "Vis kommentar":
+                case "Kommentar kontrol":
                     if (Program.isAuth && Program.isAdmin)
                     {
                         Admin.CommentsView.run();
                     }
                     else
                     {
-                        Console.WriteLine("You need to be signed in to access this page.");
+                        Console.WriteLine("Du skal være logget ind for at få adgang til denne side.");
                     }
                     break;
             }
