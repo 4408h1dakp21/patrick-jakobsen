@@ -1,4 +1,5 @@
 ﻿using Guestbook.Views.Auth;
+using ToolBox;
 
 namespace Guestbook.Views.Menu
 {
@@ -15,6 +16,10 @@ namespace Guestbook.Views.Menu
 
                 case "Opret bruger":
                     SignUp.run();
+                    break;
+
+                case "test":
+                    Clock.ClockApp();
                     break;
 
                 // Admin

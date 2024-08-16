@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\patrickjakobsen\\source\\repos\\Final_Opgave\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{739B4372-734D-41BF-A234-75A777DAC75E}|Final_Opgave\\Final_Opgave.csproj|c:\\users\\patrickjakobsen\\source\\repos\\final_opgave\\final_opgave\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{739B4372-734D-41BF-A234-75A777DAC75E}|Final_Opgave\\Final_Opgave.csproj|solutionrelative:final_opgave\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\patrickjakobsen\\source\\repos\\Final_Opgave\\Final_Opgave\\Program.cs",
+              "RelativeDocumentMoniker": "Final_Opgave\\Program.cs",
+              "ToolTip": "C:\\Users\\patrickjakobsen\\source\\repos\\Final_Opgave\\Final_Opgave\\Program.cs",
+              "RelativeToolTip": "Final_Opgave\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T06:24:46.67Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

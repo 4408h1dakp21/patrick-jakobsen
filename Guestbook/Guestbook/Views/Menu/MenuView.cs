@@ -24,6 +24,7 @@ namespace Guestbook.Views.Menu
                 {
                     new Choice("Log ind"),
                     new Choice("Opret bruger"),
+                    new Choice("test"),
                 })
                 .ChoiceColor(ConsoleColor.Green)
                 .ClearConsole(false) // Ryd ikke konsollen

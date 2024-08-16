@@ -18,7 +18,7 @@ public class User
 
     public string ToCsvString()
     {
-        return $"{Username};{Password};{Email};{PermissionFlag}";
+        return $"{Username};{Password};{Email};{PermissionFlag};";
     }
 
     public static User FromCsvString(string csvLine)

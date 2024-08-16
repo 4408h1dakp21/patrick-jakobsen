@@ -1,0 +1,14 @@
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\bin\Debug\net8.0\Final_Opgave.exe
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\bin\Debug\net8.0\Final_Opgave.deps.json
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\bin\Debug\net8.0\Final_Opgave.runtimeconfig.json
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\bin\Debug\net8.0\Final_Opgave.dll
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\bin\Debug\net8.0\Final_Opgave.pdb
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.AssemblyInfoInputs.cache
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.AssemblyInfo.cs
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.csproj.CoreCompileInputs.cache
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.dll
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\refint\Final_Opgave.dll
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.pdb
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\Final_Opgave.genruntimeconfig.cache
+C:\Users\patrickjakobsen\source\repos\Final_Opgave\Final_Opgave\obj\Debug\net8.0\ref\Final_Opgave.dll
