@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
@@ -11,89 +12,471 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 60%;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .spinner {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    flex-direction: column;
+    width: 120px;
+    height: 120px;
+    margin: 20px;
 }
 
-/* Spinner 1: Rotating Circle */
-.spinner-1 {
-    border-radius: 50%;
-    border: 10px solid #ddd;
-    border-top: 10px solid #333;
-    animation: spin 1.5s linear infinite;
+/* Spinner 4: Loading Text with Dots */
+.spinner-4 .text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-@keyframes spin {
+.spinner-4 .dots span {
+    font-size: 24px;
+    font-weight: bold;
+    animation: blink 1s infinite step-start;
+}
+
+.spinner-4 .dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.spinner-4 .dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
     0% {
-        transform: rotate(0deg);
+        opacity: 0;
     }
     100% {
-        transform: rotate(360deg);
+        opacity: 1;
     }
 }
 
-/* Spinner 2: Pulsing Dots */
-.spinner-2 {
+/* Spinner 5: Hamburger Flipping */
+.spinner-5 .burger {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.bun, .patty {
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    animation: flip 1s infinite;
+}
+
+.bun.top {
+    background-color: #f5a623;
+    top: 0;
+    z-index: 2;
+}
+
+.bun.bottom {
+    background-color: #f5a623;
+    bottom: 0;
+    z-index: 1;
+}
+
+.patty {
+    background-color: #8b4513;
+    top: 30px;
+    z-index: 3;
+}
+
+@keyframes flip {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+}
+
+/* Spinner 6: Car on a Road */
+.spinner-6 {
+    position: relative;
+    width: 120px;
+    height: 50px;
+}
+
+.car {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    top: 15px;
+    left: 0;
+    animation: drive 2s infinite linear;
+}
+
+.road {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes drive {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 80px;
+    }
+}
+
+/* Spinner 7: Flying Drone */
+
+.spinner-plane {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.plane {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 100px;
+    left: -50px;
+    animation: fly-plane 3s ease-in-out infinite;
+}
+
+.wing-left, .wing-right, .body {
+    position: absolute;
+    background-color: #ddd;
+    border-radius: 3px;
+}
+
+.wing-left {
+    width: 60px;
+    height: 20px;
+    transform: rotate(-45deg);
+    transform-origin: bottom right;
+    top: -10px;
+    left: -30px;
+}
+
+.wing-right {
+    width: 60px;
+    height: 20px;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    top: -10px;
+    right: -30px;
+}
+
+.body {
+    width: 20px;
+    height: 60px;
+    background-color: #bbb;
+    top: -10px;
+    left: -10px;
+}
+
+@keyframes fly-plane {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(150px) translateY(-50px) rotate(10deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(300px) translateY(-100px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+
+/* Spinner 8: Coffee Brewing */
+.spinner-coffee {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cup {
+    position: relative;
+    width: 60px;
+    height: 70px;
+    background-color: #fff;
+    border: 3px solid #333;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.handle {
+    position: absolute;
+    right: -18px;
+    top: 20px;
+    width: 30px;
+    height: 35px;
+    border: 3px solid #333;
+    border-radius: 30px;
+}
+
+.coffee {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #8b4513;
+    animation: fill-cup 3s infinite ease-in-out;
+}
+
+
+@keyframes fill-cup {
+    0%, 100% {
+        height: 0;
+    }
+    50% {
+        height: 50px;
+    }
+}
+
+
+/* Spinner 9: Typing Indicator */
+.spinner-9 .typing {
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+}
+
+.spinner-9 .typing span {
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.spinner-9 .typing span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.spinner-9 .typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.spinner-9 .typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Spinner 10: Construction Worker */
+.spinner-10 {
     position: relative;
     width: 60px;
     height: 60px;
 }
 
-.dot-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5px;
-    width: 100%;
-    height: 100%;
-}
-
-.dot {
-    width: 15px;
-    height: 15px;
+.spinner-10 .worker {
+    width: 20px;
+    height: 20px;
     background-color: #333;
     border-radius: 50%;
-    animation: dot-pulse 1.5s infinite ease-in-out;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation: dig 1s infinite;
 }
 
-@keyframes dot-pulse {
+.spinner-10 .hole {
+    width: 40px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+@keyframes dig {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Spinner 11: Balloon Inflation */
+.spinner-11 .balloon {
+    width: 30px;
+    height: 40px;
+    background-color: #ff5f5f;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: inflate 2s infinite ease-in-out;
+}
+
+@keyframes inflate {
     0%, 100% {
         transform: scale(1);
     }
     50% {
-        transform: scale(0.5);
+        transform: scale(1.2);
     }
 }
 
-/* Spinner 3: Bouncing Ball */
-.spinner-3 {
+/* Spinner 12: Tug of War */
+.spinner-12 {
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 50px;
 }
 
-.spinner-3::before {
-    content: '';
+.spinner-12 .tug-of-war {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spinner-12 .stick-figure {
+    width: 20px;
+    height: 40px;
+    background-color: #333;
+    position: relative;
+    animation: pull 1s infinite ease-in-out;
+}
+
+.spinner-12 .stick-figure.left {
+    transform: rotate(-45deg);
+}
+
+.spinner-12 .stick-figure.right {
+    transform: rotate(45deg);
+}
+
+.spinner-12 .rope {
+    width: 60px;
+    height: 5px;
+    background-color: #333;
     position: absolute;
-    top: 0;
-    width: 15px;
-    height: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes pull {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Spinner 13: Bouncing Ball with Shadow */
+.spinner-13 {
+    position: relative;
+    width: 80px;
+    height: 100px;
+}
+
+.spinner-13 .ball {
+    width: 30px;
+    height: 30px;
     background-color: #333;
     border-radius: 50%;
-    animation: bounce 1s infinite alternate;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce-ball 1.5s infinite ease-in-out;
 }
 
-@keyframes bounce {
-    from {
-        transform: translateY(0);
+.spinner-13 .shadow {
+    width: 30px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: shadow-scale 1.5s infinite ease-in-out;
+}
+
+@keyframes bounce-ball {
+    0%, 100% {
+        top: 0;
     }
-    to {
-        transform: translateY(-60px);
+    50% {
+        top: 70px;
+    }
+}
+
+@keyframes shadow-scale {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(0.5);
+    }
+}
+
+/* Spinner 14: Sunrise and Sunset */
+.spinner-14 {
+    position: relative;
+    width: 120px;
+    height: 100px;
+}
+
+.spinner-14 .sun {
+    width: 30px;
+    height: 30px;
+    background-color: #f9d71c;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rise-and-set 3s infinite ease-in-out;
+}
+
+.spinner-14 .horizon {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes rise-and-set {
+    0%, 100% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 70px;
     }
 }
