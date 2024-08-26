@@ -1,0 +1,755 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f5f7fa;
+    --text-color: #34495e;
+    --box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.fun-title {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    animation: colorChange 5s infinite, wobble 2s infinite;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.fun-title:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.autocomplete {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#search {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#search:focus {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.autocomplete-items div {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    background-color: var(--primary-color) !important;
+    color: #ffffff;
+}
+
+.spinner-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+}
+
+.spinner {
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.spinner:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.spinner-name {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    width: 100%;
+}
+
+/* Dine specifikke animationer */
+.spinner-drone {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.drone-body {
+    width: 60px;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    border-radius: 10px;
+}
+
+.drone-propeller {
+    width: 30px;
+    height: 5px;
+    background-color: #666;
+    position: absolute;
+    border-radius: 5px;
+    animation: rotatePropeller 0.2s linear infinite;
+}
+
+.propeller-1 { top: 30px; left: 10px; }
+.propeller-2 { top: 30px; right: 10px; }
+.propeller-3 { bottom: 30px; left: 10px; }
+.propeller-4 { bottom: 30px; right: 10px; }
+
+.drone-camera {
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    position: absolute;
+    bottom: 35px;
+    left: 45px;
+    border-radius: 50%;
+}
+
+@keyframes rotatePropeller {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes hover {
+    0%, 100% { transform: translate(-50%, -60%); }
+    50% { transform: translate(-50%, -40%); }
+}
+
+.spinner[data-name="drone"]:not(:hover) .spinner-drone {
+    animation: hover 2s ease-in-out infinite;
+}
+
+.spinner-car {
+    width: 100px;
+    height: 40px;
+    background-color: #FF4136;
+    border-radius: 10px 30px 5px 5px;
+    position: relative;
+    animation: drive 2s linear infinite;
+}
+
+.spinner-car::before,
+.spinner-car::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #111;
+    border-radius: 50%;
+    bottom: -10px;
+}
+
+.spinner-car::before {
+    left: 10px;
+}
+
+.spinner-car::after {
+    right: 10px;
+}
+
+.spinner-bush {
+    width: 80px;
+    height: 80px;
+    background-color: #2ECC40;
+    border-radius: 50%;
+    position: relative;
+    animation: grow 2s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.spinner-bush::before,
+.spinner-bush::after {
+    content: '';
+    position: absolute;
+    background-color: #27AE60;
+    border-radius: 50%;
+}
+
+.spinner-bush::before {
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: -10px;
+}
+
+.spinner-bush::after {
+    width: 30px;
+    height: 30px;
+    bottom: 5px;
+    right: 5px;
+}
+
+.spinner-tree {
+    width: 100px;
+    height: 150px;
+    position: relative;
+}
+
+.tree-trunk {
+    width: 20px;
+    height: 80px;
+    background-color: #8B4513;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tree-leaves {
+    width: 80px;
+    height: 100px;
+    background-color: #228B22;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.falling-leaf {
+    width: 15px;
+    height: 15px;
+    background-color: #32CD32;
+    border-radius: 50% 0 50% 50%;
+    position: absolute;
+    top: -20px;
+    animation: falling-leaves 4s infinite linear;
+}
+
+.falling-leaf:nth-child(2) {
+    left: 20%;
+    animation-delay: -1s;
+}
+
+.falling-leaf:nth-child(3) {
+    left: 50%;
+    animation-delay: -2s;
+}
+
+.falling-leaf:nth-child(4) {
+    left: 80%;
+    animation-delay: -3s;
+}
+
+@keyframes falling-leaves {
+    0% {
+        top: 20px;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 130px;
+        transform: translateX(-20px) rotate(90deg);
+        opacity: 0;
+    }
+}
+
+.spinner-ball {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #FF851B, #FF4136);
+    border-radius: 50%;
+    position: relative;
+    animation: ball-bounce 2s ease-in-out infinite;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3),
+                inset 5px 5px 10px rgba(255,255,255,0.3);
+}
+
+.spinner-ball::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.5);
+    top: -2px;
+    left: -2px;
+    animation: rotate 2s linear infinite;
+}
+
+.spinner-eye {
+    width: 80px;
+    height: 80px;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 10px #f1f1f1;
+}
+
+.spinner-eye::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 20px;
+    left: 20px;
+    transition: all 0.1s ease;
+    transform: translate(var(--eyeball-x, 0), var(--eyeball-y, 0));
+}
+
+.spinner-eye::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #FFF;
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    transition: all 0.1s ease;
+    transform: translate(var(--pupil-x, 0), var(--pupil-y, 0));
+}
+
+@keyframes look-around {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-8px, -8px); }
+    50% { transform: translate(8px, 8px); }
+    75% { transform: translate(8px, -8px); }
+}
+
+.spinner-eye:not(:hover)::before,
+.spinner-eye:not(:hover)::after {
+    animation: look-around 4s infinite;
+}
+
+.spinner-ghost {
+    width: 60px;
+    height: 80px;
+    background-color: #FFF;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    animation: float 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.spinner-ghost::before,
+.spinner-ghost::after {
+    content: '';
+    position: absolute;
+    background-color: #333;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    top: 25px;
+    animation: blink 3s linear infinite;
+}
+
+.spinner-ghost::before {
+    left: 15px;
+}
+
+.spinner-ghost::after {
+    right: 15px;
+}
+
+.spinner-ghost .mouth {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 10px;
+    border-radius: 0 0 10px 10px;
+    border: 2px solid #333;
+    border-top: none;
+}
+
+.spinner:hover .spinner-ghost {
+    animation: ghost-fly 2s ease-in-out infinite;
+}
+
+.spinner-heart {
+    width: 60px;
+    height: 60px;
+    background-color: #FF4136;
+    transform: rotate(45deg);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.spinner-heart::before,
+.spinner-heart::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #FF4136;
+    border-radius: 50%;
+}
+
+.spinner-heart::before {
+    left: -30px;
+}
+
+.spinner-heart::after {
+    top: -30px;
+}
+
+.spinner-rainbow {
+    width: 100px;
+    height: 50px;
+    background-color: hsl(0, 100%, 50%);
+    border-radius: 100px 100px 0 0;
+    position: relative;
+    overflow: hidden;
+    animation: rainbow-shift 6s linear infinite;
+}
+
+.spinner-letters {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.spinner-letters span {
+    display: inline-block;
+    animation: jump 0.5s ease-in-out infinite alternate;
+}
+
+.spinner-letters span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.spinner-letters span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.spinner-letters span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.spinner-letters span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+/* Animation keyframes */
+@keyframes colorChange {
+    0% { color: var(--primary-color); }
+    33% { color: var(--secondary-color); }
+    66% { color: #e74c3c; }
+    100% { color: var(--primary-color); }
+}
+
+@keyframes wobble {
+    0%, 100% { transform: translateX(0) rotate(0); }
+    25% { transform: translateX(-5px) rotate(-5deg); }
+    75% { transform: translateX(5px) rotate(5deg); }
+}
+
+@keyframes fly {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+@keyframes rotatePropeller {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes drive {
+    0% { transform: translateX(-50px); }
+    100% { transform: translateX(50px); }
+}
+
+@keyframes grow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes ball-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(0.8); }
+}
+
+@keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1) rotate(45deg); }
+    50% { transform: scale(1.1) rotate(45deg); }
+}
+
+@keyframes rainbow-shift {
+    0% { background-color: hsl(0, 100%, 50%); }
+    16.66% { background-color: hsl(60, 100%, 50%); }
+    33.33% { background-color: hsl(120, 100%, 50%); }
+    50% { background-color: hsl(180, 100%, 50%); }
+    66.66% { background-color: hsl(240, 100%, 50%); }
+    83.33% { background-color: hsl(300, 100%, 50%); }
+    100% { background-color: hsl(360, 100%, 50%); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes jump {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+@keyframes rain-drop {
+    0% { transform: translateY(-20px); }
+    100% { transform: translateY(100px); }
+}
+
+@keyframes lightning-flash {
+    0%, 95%, 100% { opacity: 0; }
+    96%, 99% { opacity: 1; }
+}
+
+@keyframes ghost-fly {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -10px) rotate(5deg); }
+    50% { transform: translate(0, -20px) rotate(0deg); }
+    75% { transform: translate(-10px, -10px) rotate(-5deg); }
+}
+
+@media (max-width: 1024px) {
+    .spinner-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .spinner {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fun-title {
+        font-size: 2.5rem;
+    }
+
+    .spinner {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fun-title {
+        font-size: 2rem;
+    }
+
+    .spinner {
+        height: 250px;
+    }
+}
+
+.spinner-weather {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: background 0.5s ease-in-out;
+}
+
+.spinner-weather.sun-bg {
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+}
+
+.spinner-weather.rain-bg {
+    background: linear-gradient(to bottom, #4A4A4A, #7F8C8D);
+}
+
+.spinner-weather.thunder-bg {
+    background: linear-gradient(to bottom, #2C3E50, #34495E);
+}
+
+.spinner-weather .weather-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Sol */
+.spinner-weather .sun {
+    background: radial-gradient(circle at center, #FFD700 30%, transparent 70%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #FFD700;
+}
+
+/* Regnvejr */
+.spinner-weather .rain .cloud,
+.spinner-weather .thunder .cloud {
+    width: 60px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.spinner-weather .rain .cloud::before,
+.spinner-weather .rain .cloud::after,
+.spinner-weather .thunder .cloud::before,
+.spinner-weather .thunder .cloud::after {
+    content: '';
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.spinner-weather .rain .cloud::before,
+.spinner-weather .thunder .cloud::before {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 10px;
+}
+
+.spinner-weather .rain .cloud::after,
+.spinner-weather .thunder .cloud::after {
+    width: 25px;
+    height: 25px;
+    top: -10px;
+    right: 10px;
+}
+
+.spinner-weather .rain .raindrop,
+.spinner-weather .thunder .raindrop {
+    width: 3px;
+    height: 15px;
+    background: #4169E1;
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+    animation: rain-drop 1s infinite linear;
+    box-shadow:
+        15px 0px 0 0 #4169E1,
+        30px 0px 0 0 #4169E1;
+}
+
+/* Tordenvejr */
+.spinner-weather .thunder .cloud {
+    background: #A9A9A9;
+}
+
+.spinner-weather .thunder .cloud::before,
+.spinner-weather .thunder .cloud::after {
+    background: #A9A9A9;
+}
+
+.spinner-weather .thunder .lightning {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 25px solid #FFD700;
+    position: absolute;
+    bottom: 15px;
+    left: 35px;
+    animation: lightning-flash 3s infinite;
+    filter: drop-shadow(0 0 5px #FFD700);
+}
+
+@keyframes rain-drop {
+    0% { transform: translateY(-20px); }
+    100% { transform: translateY(40px); }
+}
+
+@keyframes lightning-flash {
+    0%, 95%, 100% { opacity: 0; }
+    96%, 99% { opacity: 1; }
+}
