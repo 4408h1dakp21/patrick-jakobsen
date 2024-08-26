@@ -1,0 +1,39 @@
+nav ul {
+    font-family: Arial, Verdana;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+    width: 90px;
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    border-top: 1px solid #ffffff;
+    padding: 5px 15px;
+    background: #2C5463;
+    margin-left: 1px;
+    white-space: nowrap;
+}
+
+nav ul li a:hover {
+    background: #617FBA;
+}
+
+nav li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+nav li:hover ul {
+    display: block;
+}

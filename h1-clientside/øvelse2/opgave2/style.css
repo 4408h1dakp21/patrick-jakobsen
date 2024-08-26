@@ -1,0 +1,34 @@
+form {
+    display: inline-block;
+    background-color: #CCC;
+    padding: 10px;
+    margin: 10px;
+}
+
+label, input, textarea {
+    padding: 0px;
+    display: block;
+    float: left;
+    margin-top: 5px;
+    clear: left;
+}
+
+label {
+    width: 120px;
+    padding: 0 0 1px 1px;
+}
+
+input {
+    width: 198px;
+}
+
+textarea {
+    width: 200px;
+    min-height: 120px;
+}
+
+input[type="submit"] {
+    clear: left;
+    float: right;
+    width: 203px;
+}
