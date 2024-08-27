@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const spinnerContainer = document.querySelector('.spinner-container');
 
     // Opdater listen over spinner-navne med danske navne
-    const spinnerNames = ['drone', 'bil', 'busk', 'træ', 'bold', 'øje', 'spøgelse', 'hjerte', 'regnbue', 'vejr', 'bogstaver'];
+    const spinnerNames = ['drone', 'bil', 'træ', 'bold', 'øje', 'spøgelse', 'hjerte', 'regnbue', 'vejr', 'bogstaver', 'kaffe', 'pingvin', 'ludo', 'hoppende kanin', 'snapchat notifikation'];
 
     function autocomplete(inp, arr) {
         let currentFocus;

@@ -226,38 +226,6 @@ header {
     right: 10px;
 }
 
-.spinner-bush {
-    width: 80px;
-    height: 80px;
-    background-color: #2ECC40;
-    border-radius: 50%;
-    position: relative;
-    animation: grow 2s ease-in-out infinite;
-    overflow: hidden;
-}
-
-.spinner-bush::before,
-.spinner-bush::after {
-    content: '';
-    position: absolute;
-    background-color: #27AE60;
-    border-radius: 50%;
-}
-
-.spinner-bush::before {
-    width: 40px;
-    height: 40px;
-    top: -10px;
-    left: -10px;
-}
-
-.spinner-bush::after {
-    width: 30px;
-    height: 30px;
-    bottom: 5px;
-    right: 5px;
-}
-
 .spinner-tree {
     width: 100px;
     height: 150px;
@@ -752,4 +720,476 @@ header {
 @keyframes lightning-flash {
     0%, 95%, 100% { opacity: 0; }
     96%, 99% { opacity: 1; }
+}
+
+.spinner-coffee {
+    width: 80px;
+    height: 100px;
+    background-color: #FFFFFF;
+    border-radius: 0 0 30px 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #D3D3D3;
+}
+
+.coffee-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #6F4E37;
+    transition: height 2s ease-in-out;
+    animation: fill-empty 4s infinite;
+}
+
+.coffee-steam {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(5px);
+    animation: steam 4s infinite;
+}
+
+.coffee-steam:nth-child(2) {
+    left: 35px;
+    animation-delay: 0.5s;
+}
+
+.coffee-steam:nth-child(3) {
+    left: 55px;
+    animation-delay: 1s;
+}
+
+@keyframes fill-empty {
+    0%, 100% { height: 0; }
+    50% { height: 80%; }
+}
+
+@keyframes steam {
+    0%, 100% { opacity: 0; transform: translateY(0); }
+    25%, 75% { opacity: 0.5; transform: translateY(-15px); }
+    50% { opacity: 1; transform: translateY(-30px); }
+}
+
+.spinner-penguin {
+    width: 120px;
+    height: 160px;
+    position: relative;
+    animation: penguin-dance 4s ease-in-out infinite;
+}
+
+.penguin-body {
+    width: 100px;
+    height: 130px;
+    background-color: #1a1a1a;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    animation: body-wobble 2s ease-in-out infinite;
+}
+
+.penguin-belly {
+    width: 80px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+}
+
+.penguin-face {
+    width: 80px;
+    height: 70px;
+    background-color: #1a1a1a;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    animation: head-bob 2s ease-in-out infinite;
+}
+
+.eye {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    animation: blink 4s infinite;
+}
+
+.eye::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.eye.left { left: 20px; }
+.eye.right { right: 20px; }
+
+.beak {
+    width: 20px;
+    height: 10px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    border-radius: 0 0 10px 10px;
+}
+
+.wing {
+    width: 30px;
+    height: 60px;
+    background-color: #1a1a1a;
+    position: absolute;
+    top: 60px;
+    border-radius: 60% 30% 30% 60%;
+}
+
+.wing.left {
+    left: 0;
+    transform-origin: right center;
+    animation: flap-left 0.5s ease-in-out infinite alternate;
+}
+
+.wing.right {
+    right: 0;
+    transform-origin: left center;
+    animation: flap-right 0.5s ease-in-out infinite alternate;
+}
+
+.feet {
+    width: 30px;
+    height: 15px;
+    background-color: #FFA500;
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    animation: tap-feet 1s infinite alternate;
+}
+
+.feet.left { left: 25px; }
+.feet.right { right: 25px; }
+
+@keyframes penguin-dance {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes body-wobble {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+@keyframes head-bob {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(5px) rotate(5deg); }
+}
+
+@keyframes flap-left {
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(-10deg); }
+}
+
+@keyframes flap-right {
+    0% { transform: rotate(-30deg); }
+    100% { transform: rotate(10deg); }
+}
+
+@keyframes tap-feet {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.8); }
+}
+
+@keyframes blink {
+    0%, 45%, 55%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); }
+}
+
+.spinner-ludo {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ludo-board {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.ludo-square {
+    border: 1px solid #ccc;
+}
+
+.ludo-red { background-color: #ff6b6b; }
+.ludo-green { background-color: #51cf66; }
+.ludo-yellow { background-color: #fcc419; }
+.ludo-blue { background-color: #339af0; }
+
+.ludo-dice {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    animation: roll-dice 3s infinite;
+}
+
+.ludo-piece {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    animation: move-piece 6s infinite;
+}
+
+.ludo-piece:nth-child(1) { background-color: #ff6b6b; top: 10px; left: 10px; }
+.ludo-piece:nth-child(2) { background-color: #51cf66; top: 10px; right: 10px; }
+.ludo-piece:nth-child(3) { background-color: #fcc419; bottom: 10px; left: 10px; }
+.ludo-piece:nth-child(4) { background-color: #339af0; bottom: 10px; right: 10px; }
+
+@keyframes roll-dice {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0deg); content: "1"; }
+    20% { transform: translate(-50%, -50%) rotate(720deg); content: "6"; }
+    40% { transform: translate(-50%, -50%) rotate(0deg); content: "3"; }
+    60% { transform: translate(-50%, -50%) rotate(-720deg); content: "5"; }
+    80% { transform: translate(-50%, -50%) rotate(0deg); content: "2"; }
+}
+
+@keyframes move-piece {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(30px, 30px); }
+    50% { transform: translate(60px, 0); }
+    75% { transform: translate(30px, -30px); }
+}
+
+.spinner-rabbit {
+    width: 100px;
+    height: 120px;
+    position: relative;
+    animation: rabbit-hop 4s infinite linear;
+}
+
+.rabbit-body {
+    width: 60px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+}
+
+.rabbit-head {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+
+.rabbit-ear {
+    width: 15px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: -30px;
+}
+
+.rabbit-ear.left {
+    left: 10px;
+    transform: rotate(-10deg);
+    animation: ear-wiggle-left 2s infinite;
+}
+
+.rabbit-ear.right {
+    right: 10px;
+    transform: rotate(10deg);
+    animation: ear-wiggle-right 2s infinite;
+}
+
+.rabbit-eye {
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+}
+
+.rabbit-eye.left { left: 15px; }
+.rabbit-eye.right { right: 15px; }
+
+.rabbit-nose {
+    width: 10px;
+    height: 5px;
+    background-color: pink;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+}
+
+.rabbit-tail {
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    animation: tail-wiggle 0.5s infinite alternate;
+}
+
+.spinner-bush {
+    width: 60px;
+    height: 50px;
+    background-color: #2ECC40;
+    border-radius: 50% 50% 40% 40%;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.spinner-bush::before,
+.spinner-bush::after {
+    content: '';
+    position: absolute;
+    background-color: #27AE60;
+    border-radius: 50%;
+}
+
+.spinner-bush::before {
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: -10px;
+}
+
+.spinner-bush::after {
+    width: 30px;
+    height: 30px;
+    bottom: 5px;
+    right: 5px;
+}
+
+@keyframes rabbit-hop {
+    0%, 100% {
+        transform: translateY(0) translateX(-50px);
+    }
+    25% {
+        transform: translateY(-60px) translateX(0);
+    }
+    50% {
+        transform: translateY(0) translateX(50px);
+    }
+    75% {
+        transform: translateY(-60px) translateX(0);
+    }
+}
+
+@keyframes ear-wiggle-left {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(-15deg); }
+}
+
+@keyframes ear-wiggle-right {
+    0%, 100% { transform: rotate(10deg); }
+    50% { transform: rotate(15deg); }
+}
+
+@keyframes tail-wiggle {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.spinner-snapchat {
+    width: 200px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    animation: notification-pop 4s infinite;
+}
+
+.notification-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    background-color: #fffc00;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.notification-content {
+    flex-grow: 1;
+}
+
+.notification-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.notification-message {
+    font-size: 12px;
+    color: #666;
+}
+
+@keyframes notification-pop {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    10%, 90% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
