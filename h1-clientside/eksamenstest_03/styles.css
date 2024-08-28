@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #8e44ad;
+    color: white;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.2rem;
+    margin-top: 16px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.nav-links a:hover {
+    background-color: #643a79;
+}
+
+.hero {
+    background-color: #8e44ad;
+    color: white;
+    text-align: center;
+    padding: 10rem 2rem;
+    height: 17vh;
+}
+
+.hero h2 {
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.cta-button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.info {
+    background-color: #1abc9c;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 2.1rem;
+    letter-spacing: 0.2rem;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+.line {
+    width: 75px;
+    height: 2px;
+    background-color: #15a08b;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.info > p {
+    max-width: 540px;
+    margin: 0 auto 2rem;
+}
+
+.info-columns {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+}
+
+.info-column {
+    flex: 1;
+    margin: 0 1rem;
+    text-align: left;
+}
+
+.info-column h3 {
+    margin-bottom: 1rem;
+}
+
+.info-column img {
+    width: 250px;
+    margin: 2rem 5rem;
+}
+
+.bitcoin-image-1  {
+    margin-top: 5rem !important;
+}
+
+.video {
+    background-color: #d74681;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.video h2 {
+    font-size: 2.1rem;
+    letter-spacing: 0.2rem;
+    font-weight: lighter;
+    margin-bottom: 1rem;
+}
+
+.line.red {
+    width: 75px;
+    height: 2px;
+    background-color: #b5396b;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.video video {
+    max-width: 800px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.contact {
+    background-color: #3c549a;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.1rem;
+    letter-spacing: 0.2rem;
+    font-weight: lighter;
+}
+
+.line.blue {
+    width: 75px;
+    height: 2px;
+    background-color: #293e79;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+.contact p {
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    margin: 2rem auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.form-group input {
+    width: 100%;
+    background-color: #273a72;
+    color: white;
+}
+
+form input,
+form textarea {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #273a72;
+    color: white;
+}
+
+form textarea {
+    height: 250px;
+}
+
+form button {
+    background-color: #30bae8;
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 10px 0 0 rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+footer {
+    background-color: #344b8e;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+.burger-menu {
+    display: block;
+    visibility: hidden;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+
+@media (max-width: 1020px) {
+    nav {
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #8e44ad;
+        padding: 20px;
+    }
+
+    .hero {
+        height: auto;
+        padding: 5rem 1rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+
+    form textarea {
+        height: 150px;
+    }
+
+    .info-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-column img {
+        width: 150px;
+        margin: 1rem auto;
+        order: -1; /* Flyt billedet øverst i kolonnen */
+    }
+
+    .info-column h3 {
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .info-columns {
+        flex-direction: column;
+    }
+
+    .info-column {
+        margin: 1rem 0;
+    }
+
+    .info-column img {
+        width: 200px;
+        margin: 2rem auto;
+    }
+
+    form {
+        max-width: 80%;
+    }
+
+    .burger-menu {
+        visibility: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 5rem 1rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    .info h2, .video h2, .contact h2 {
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    .burger-menu {
+        visibility: visible;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .info h2, .video h2, .contact h2 {
+        font-size: 1.5rem;
+    }
+
+    .social-links a {
+        margin: 0 5px;
+        font-size: 0.8rem;
+    }
+
+    .burger-menu {
+        visibility: visible;
+    }
+}
