@@ -1,0 +1,411 @@
+:root {
+    --primary-color: #ac8e40;
+    --secondary-color: #0f0f0f;
+    --tertiary-color: #000000;
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Ændret til hvid */
+    color: #fff;
+}
+
+.black-background {
+    background-color: #000;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('./Assets/images/Background/background.png');
+    background-attachment: fixed;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #0f0f0f;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--secondary-color);
+}
+
+nav .logo img {
+    width: 70px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+nav .nav-links li a:hover {
+    color: #d4a017;
+}
+
+header#merchandise {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    background-color: #ac8e40;
+}
+
+header .merchandise-img {
+    width: 100%;
+    height: auto;
+}
+
+.section-banner {
+    width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 20px;
+   padding-top: 20px;
+}
+
+.section-banner img {
+    width: 45%;
+    height: 90px;
+}
+
+#video {
+    padding: 50px 0;
+}
+
+#video .video-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.video-container iframe {
+    width: 800px;
+    height: 450px;
+}
+
+#koncerter-banner {
+    background: linear-gradient(to right, var(--primary-color) 50%, var(--secondary-color) 50%);
+}
+
+#koncerter {
+    background-color: transparent; /* Ændret fra #0f0f0f */
+    width: 100%;
+}
+
+#koncerter .concerts {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.venue {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.venue h3 {
+    color: var(--tertiary-color);
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    margin: 0;
+
+}
+
+.venue ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 20px;
+    font-size: 1.rem;
+}
+
+
+
+.date {
+    background-color: var(--secondary-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date h3 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    margin: 0;
+}
+
+.date ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    list-style: none;
+    padding: 20px;
+    font-size: 1.rem;
+}
+
+#koncerter .concerts div {
+    width: 50%;
+
+}
+
+#musik {
+    background-color: #ac8e40;
+}
+
+#musik-banner {
+    background: linear-gradient(to left, var(--primary-color) 50%, var(--secondary-color) 50%);
+}
+
+
+#musik .music-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+#musik .album {
+    text-align: center;
+    margin-bottom: 20px;
+    flex-basis: 20%;
+    box-sizing: border-box;
+}
+
+.album-container-1 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+}
+
+.album-container-2 {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+#musik .album img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+#gear {
+    background-color: #0f0f0f;
+}
+
+#gear .gear-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.gear-content h3 {
+    color: white;
+    font-size: 2.6rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+#gear .gear-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+
+    font-size: 1.rem;
+}
+
+.gear-content img {
+    width: 500px;
+    margin-right: 30px;
+}
+
+.gear-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.gear-description {
+    width: 370px;
+    text-align: start;
+    font-size: 1.2rem;
+}
+
+
+.gear-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.gear-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 60px;
+}
+
+.gear-button:hover {
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 10px 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+footer .footer-logo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+footer .social-media {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .input {
+    display: flex;
+    gap: 0;
+}
+
+.footer-bottom {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 10px;
+   font-weight: 200;
+   color: gray;
+}
+
+footer .input input {
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    border-left: 3px solid white;
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px;
+    width: 170px;
+    height: 20px;
+    border-radius: 7px 0px 0px 7px;
+    background-color: var(--primary-color);
+}
+
+footer .input button {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    padding: 15px;
+    width: 50px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border-radius: 0 7px 7px 0px;
+    background-color: white;
+
+}
+
+footer .social-media img {
+    width: 40px;
+}
+
+
+footer .footer-album {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    padding: 40px;
+    max-height: 150px;
+}
+
+footer .newsletter p {
+    font-size: 0.8rem;
+    font-weight: 300;
+
+    margin-top: 30px;
+    padding-bottom: 20px;
+    text-align: start;
+}
+
+footer .newsletter-title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    margin-bottom: 30px;
+    text-align: start;
+}
+
+footer .footer-uso img {
+    width: 100px;
+    height: 35px;
+}
+
+footer .footer-albun-cover {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}

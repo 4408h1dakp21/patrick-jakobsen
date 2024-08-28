@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const spinnerContainer = document.querySelector('.spinner-container');
 
     // Opdater listen over spinner-navne med danske navne
-    const spinnerNames = ['drone', 'bil', 'træ', 'bold', 'øje', 'spøgelse', 'hjerte', 'regnbue', 'vejr', 'bogstaver', 'kaffe', 'pingvin', 'ludo', 'hoppende kanin', 'snapchat notifikation'];
+    const spinnerNames = ['drone', 'bil', 'træ', 'bold', 'øje', 'spøgelse', 'hjerte', 'regnbue', 'vejr', 'bogstaver', 'kaffe', 'pingvin', 'ludo', 'hoppende kanin', 'snapchat notifikation', 'hoppende bold i kasse', 'computer', 'mac computer', 'fisk', 'svømmende fisk'];
 
     function autocomplete(inp, arr) {
         let currentFocus;
@@ -203,4 +203,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Tilføj denne linje for at sikre, at dronen er synlig og centreret ved start
     drone.style.animation = 'hover 2s ease-in-out infinite';
+
+    // Tilføj denne nye funktion til at håndtere fiske-animationen
+    function initializeFish() {
+        const aquarium = document.querySelector('.aquarium');
+        const fish = document.querySelector('.fish');
+        let isFollowing = false;
+        let targetX = aquarium.clientWidth / 2;
+        let targetY = aquarium.clientHeight / 2;
+        let currentX = targetX;
+        let currentY = targetY;
+
+        aquarium.addEventListener('mouseenter', () => {
+            isFollowing = true;
+        });
+
+        aquarium.addEventListener('mouseleave', () => {
+            isFollowing = false;
+            targetX = aquarium.clientWidth / 2;
+            targetY = aquarium.clientHeight / 2;
+        });
+
+        aquarium.addEventListener('mousemove', (e) => {
+            if (isFollowing) {
+                const rect = aquarium.getBoundingClientRect();
+                targetX = e.clientX - rect.left;
+                targetY = e.clientY - rect.top;
+            }
+        });
+
+        function updateFishPosition() {
+            if (isFollowing || (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1)) {
+                currentX += (targetX - currentX) * 0.1;
+                currentY += (targetY - currentY) * 0.1;
+
+                const centerX = aquarium.clientWidth / 2;
+                const centerY = aquarium.clientHeight / 2;
+
+                const angle = Math.atan2(currentY - centerY, currentX - centerX);
+                const degree = angle * (180 / Math.PI);
+
+                fish.style.left = `${currentX}px`;
+                fish.style.top = `${currentY}px`;
+                fish.style.transform = `translate(-50%, -50%) rotate(${degree}deg)`;
+            }
+            requestAnimationFrame(updateFishPosition);
+        }
+
+        updateFishPosition();
+    }
+
+    // Kald initializeFish funktionen
+    initializeFish();
 });
