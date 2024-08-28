@@ -245,7 +245,7 @@ footer {
 }
 
 .burger-menu {
-    display: block;
+    display: none;
     visibility: hidden;
     cursor: pointer;
     z-index: 1000;
@@ -339,6 +339,7 @@ footer {
 
     .burger-menu {
         visibility: visible;
+        display: block;
     }
 }
 
@@ -366,6 +367,7 @@ footer {
 
     .burger-menu {
         visibility: visible;
+        display: block;
     }
 }
 
@@ -394,5 +396,6 @@ footer {
 
     .burger-menu {
         visibility: visible;
+        display: block;
     }
 }
