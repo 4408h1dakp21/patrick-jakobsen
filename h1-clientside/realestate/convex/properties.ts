@@ -1,22 +1,4 @@
-// File: convex/schema.ts
-import { defineSchema, defineTable } from 'convex/server'
 import { v } from 'convex/values'
-
-export default defineSchema({
-    properties: defineTable({
-        address: v.string(),
-        bathrooms: v.number(),
-        bedrooms: v.number(),
-        description: v.string(),
-        imageUrls: v.array(v.string()),
-        price: v.number(),
-        squareFootage: v.number(),
-        status: v.string(),
-        type: v.string(),
-    }),
-})
-
-// File: convex/properties.ts
 import { mutation, query } from './_generated/server'
 
 export const getProperty = query({
@@ -36,9 +18,23 @@ export const addProperty = mutation({
         squareFootage: v.number(),
         status: v.string(),
         type: v.string(),
+        isNew: v.boolean(),
+        isTrending: v.boolean(),
     },
     handler: async (ctx, args) => {
-        const propertyId = await ctx.db.insert('properties', args)
+        const propertyId = await ctx.db.insert('properties', {
+            address: args.address,
+            bathrooms: args.bathrooms,
+            bedrooms: args.bedrooms,
+            description: args.description,
+            imageUrls: args.imageUrls,
+            price: args.price,
+            squareFootage: args.squareFootage,
+            status: args.status,
+            type: args.type,
+            isNew: args.isNew,
+            isTrending: args.isTrending,
+        })
         return propertyId
     },
 })
@@ -55,9 +51,17 @@ export const editProperty = mutation({
         squareFootage: v.number(),
         status: v.string(),
         type: v.string(),
+        isNew: v.boolean(),
+        isTrending: v.boolean(),
     },
     handler: async (ctx, args) => {
         const { id, ...updates } = args
+
+        const existingProperty = await ctx.db.get(id)
+        if (!existingProperty) {
+            throw new Error(`Property with ID ${id} does not exist`)
+        }
+
         await ctx.db.patch(id, updates)
     },
 })
@@ -66,5 +70,12 @@ export const deleteProperty = mutation({
     args: { id: v.id('properties') },
     handler: async (ctx, args) => {
         await ctx.db.delete(args.id)
+    },
+})
+
+export const getPropertyById = query({
+    args: { id: v.id('properties') },
+    handler: async (ctx, args) => {
+        return await ctx.db.get(args.id)
     },
 })
