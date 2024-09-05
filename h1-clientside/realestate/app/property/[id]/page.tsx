@@ -19,12 +19,11 @@ import {
     Bath,
     Square,
     Home,
-    DollarSign,
-    Calendar,
     ArrowLeft,
     Heart,
     Share2,
     Camera,
+    Star,
 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { Property } from '@/types'
@@ -32,11 +31,14 @@ import { Id } from '@/convex/_generated/dataModel'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import toast from 'react-hot-toast'
+import { toast } from '@/hooks/use-toast'
+import { ContactForm } from '@/components/clients/ContactForm'
+import { motion } from 'framer-motion'
 
+// Dynamisk import af kortkomponenten
 const Map = dynamic(() => import('@/components/Map'), { ssr: false })
 
-export default function PropertyPage({ params }: { params: { id: string } }) {
+export default function Component({ params }: { params: { id: string } }) {
     const property = useQuery(api.properties.getPropertyById, {
         id: params.id as Id<'properties'>,
     })
@@ -48,18 +50,20 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
     const imageUrls = useQuery(api.files.getUrls, { storageIds })
     const [activeImageIndex, setActiveImageIndex] = useState(0)
 
+    // Vis skelet-loading, hvis data stadig indlæses
     if (property === undefined || imageUrls === undefined) {
         return <PropertySkeleton />
     }
 
+    // Vis fejlmeddelelse, hvis ejendommen ikke findes
     if (property === null) {
         return (
             <div className="container mx-auto px-4 py-8">
-                <h1 className="text-3xl font-bold mb-6">Property not found</h1>
-                <Link href="/properties">
+                <h1 className="text-3xl font-bold mb-6">Ejendom ikke fundet</h1>
+                <Link href="/">
                     <Button variant="outline">
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to
-                        Properties
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Tilbage til
+                        Ejendomme
                     </Button>
                 </Link>
             </div>
@@ -68,41 +72,67 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
 
     return (
         <div className="container mx-auto px-4 py-8 min-h-screen">
-            <div className="mb-6 flex justify-between items-center">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 flex justify-between items-center"
+            >
                 <Link href="/">
                     <Button
                         variant="outline"
                         className="hover:bg-primary hover:text-white transition-colors"
                     >
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to
-                        Properties
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Tilbage til
+                        Ejendomme
                     </Button>
                 </Link>
-                <div>
+                <div className="flex space-x-2">
+                    <Button
+                        variant="outline"
+                        className="hover:bg-red-500 hover:text-white transition-colors"
+                        onClick={() => {
+                            toast({
+                                title: 'Ejendom gemt!',
+                                description:
+                                    'Ejendommen er blevet gemt i dine favoritter.',
+                            })
+                        }}
+                    >
+                        <Heart className="mr-2 h-4 w-4" /> Gem
+                    </Button>
                     <Button
                         variant="outline"
                         className="hover:bg-blue-500 hover:text-white transition-colors"
                         onClick={() => {
                             navigator.clipboard.writeText(window.location.href)
-                            toast.success('Link copied to clipboard')
+                            toast({
+                                title: 'Link kopieret!',
+                                description:
+                                    'Ejendommens link er blevet kopieret til din udklipsholder.',
+                            })
                         }}
                     >
-                        <Share2 className="mr-2 h-4 w-4" /> Share
+                        <Share2 className="mr-2 h-4 w-4" /> Del
                     </Button>
                 </div>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="space-y-4 ">
-                    <Card className="overflow-hidden shadow-lg">
-                        <Carousel className="w-full ">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <Carousel className="w-full">
                             <CarouselContent>
                                 {imageUrls.map((url, index) => (
                                     <CarouselItem key={index}>
-                                        <div className="relative ">
+                                        <div className="relative">
                                             <img
                                                 src={url!}
-                                                alt={`Property image ${index + 1}`}
+                                                alt={`Ejendomsbillede ${index + 1}`}
                                                 className="w-full h-[510px] object-cover"
                                             />
                                             <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-2 py-1 rounded-full flex items-center">
@@ -120,14 +150,19 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
                             <CarouselNext />
                         </Carousel>
                     </Card>
-                </div>
+                </motion.div>
 
-                <div className="space-y-6">
+                <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="space-y-6"
+                >
                     <div>
-                        <h1 className="text-4xl font-bold mb-2 text-gray-800 dark:text-white">
+                        <h1 className="text-4xl font-bold mb-2 text-primary">
                             {property.address}
                         </h1>
-                        <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
+                        <div className="flex items-center space-x-2 text-muted-foreground">
                             <MapPin className="h-5 w-5" />
                             <span>{property.address}</span>
                         </div>
@@ -135,11 +170,11 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
 
                     <div className="flex justify-between items-center">
                         <span className="text-4xl font-bold text-primary">
-                            ${property.price.toLocaleString()}
+                            {property.price.toLocaleString()} kr.
                         </span>
                         <Badge
                             variant={
-                                property.status === 'Active'
+                                property.status === 'Aktiv'
                                     ? 'default'
                                     : 'secondary'
                             }
@@ -149,10 +184,11 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
                         </Badge>
                     </div>
 
-                    <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
+                    <Card className="bg-card text-card-foreground shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <CardHeader>
-                            <CardTitle className="text-2xl">
-                                Property Details
+                            <CardTitle className="text-2xl flex items-center">
+                                <Star className="w-6 h-6 mr-2 text-yellow-500" />
+                                Ejendomsdetaljer
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -163,51 +199,57 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
                                 </li>
                                 <li className="flex items-center text-lg">
                                     <Bed className="w-6 h-6 mr-3 text-primary" />
-                                    {property.bedrooms} Bedrooms
+                                    {property.bedrooms} Soveværelser
                                 </li>
                                 <li className="flex items-center text-lg">
                                     <Bath className="w-6 h-6 mr-3 text-primary" />
-                                    {property.bathrooms} Bathrooms
+                                    {property.bathrooms} Badeværelser
                                 </li>
                                 <li className="flex items-center text-lg">
                                     <Square className="w-6 h-6 mr-3 text-primary" />
-                                    {property.squareFootage} sqft
+                                    {property.squareFootage} m²
                                 </li>
                             </ul>
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow">
+                    <Card className="bg-card text-card-foreground shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <CardHeader>
                             <CardTitle className="text-2xl">
-                                Description
+                                Beskrivelse
                             </CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                            <p className="text-muted-foreground text-lg leading-relaxed">
                                 {property.description}
                             </p>
                         </CardContent>
                     </Card>
-                </div>
+                </motion.div>
             </div>
 
-            <Card className="bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow ">
-                <CardContent className="p-0">
-                    <div className="h-[500px]  rounded-lg overflow-hidden">
-                        <Map address={property.address} />
-                    </div>
-                </CardContent>
-            </Card>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+            >
+                <Card className="bg-card text-card-foreground shadow-lg hover:shadow-xl transition-all duration-300">
+                    <CardContent className="p-0">
+                        <div className="h-[500px] rounded-lg overflow-hidden">
+                            <Map address={property.address} />
+                        </div>
+                    </CardContent>
+                </Card>
+            </motion.div>
 
-            <div className="text-center mt-8">
-                <Button
-                    size="lg"
-                    className="px-8 py-4 text-lg bg-primary hover:bg-primary/90 text-white"
-                >
-                    Contact Agent
-                </Button>
-            </div>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="text-center mt-8"
+            >
+                <ContactForm />
+            </motion.div>
         </div>
     )
 }

@@ -13,6 +13,7 @@ import { Edit, Trash2, ArrowUpDown } from 'lucide-react'
 import { Property, PropertyFormData } from '@/types'
 import { Badge } from '@/components/ui/badge'
 
+// PropertyTable-komponenten til visning af ejendomme i tabelform
 export const PropertyTable: React.FC<{
     properties: Property[]
     onEdit: (property: Property) => void
@@ -21,6 +22,17 @@ export const PropertyTable: React.FC<{
     sortDirection: 'asc' | 'desc'
     onSort: (field: keyof PropertyFormData) => void
 }> = ({ properties, onEdit, onDelete, sortField, sortDirection, onSort }) => {
+    // Funktion til at oversætte feltnavne til dansk
+    const translateField = (field: string): string => {
+        const translations: { [key: string]: string } = {
+            address: 'Adresse',
+            price: 'Pris',
+            type: 'Type',
+            status: 'Status',
+        }
+        return translations[field] || field
+    }
+
     return (
         <Table>
             <TableHeader>
@@ -33,12 +45,12 @@ export const PropertyTable: React.FC<{
                             }
                             className="cursor-pointer"
                         >
-                            {field.charAt(0).toUpperCase() + field.slice(1)}{' '}
+                            {translateField(field)}{' '}
                             <ArrowUpDown className="ml-2 h-4 w-4 inline" />
                         </TableHead>
                     ))}
-                    <TableHead>Tags</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead>Mærker</TableHead>
+                    <TableHead>Handlinger</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -46,18 +58,18 @@ export const PropertyTable: React.FC<{
                     <TableRow key={property._id}>
                         <TableCell>{property.address}</TableCell>
                         <TableCell>
-                            ${property.price.toLocaleString()}
+                            {property.price.toLocaleString()} kr.
                         </TableCell>
                         <TableCell>{property.type}</TableCell>
                         <TableCell>{property.status}</TableCell>
                         <TableCell>
                             {property.isNew && (
                                 <Badge className="mr-2" variant="secondary">
-                                    New
+                                    Ny
                                 </Badge>
                             )}
                             {property.isTrending && (
-                                <Badge variant="secondary">Trending</Badge>
+                                <Badge variant="secondary">Populær</Badge>
                             )}
                         </TableCell>
                         <TableCell>
@@ -66,14 +78,14 @@ export const PropertyTable: React.FC<{
                                 onClick={() => onEdit(property)}
                             >
                                 <Edit className="h-4 w-4 mr-2" />
-                                Edit
+                                Rediger
                             </Button>
                             <Button
                                 variant="ghost"
                                 onClick={() => onDelete(property._id)}
                             >
                                 <Trash2 className="h-4 w-4 mr-2" />
-                                Delete
+                                Slet
                             </Button>
                         </TableCell>
                     </TableRow>

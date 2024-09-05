@@ -10,32 +10,39 @@ import { Skeleton } from '@/components/ui/skeleton'
 export const PropertyCarousel: React.FC<{ properties: Property[] }> = ({
     properties,
 }) => {
+    // Tilstandsvariabel for det aktuelle billede i karrusellen
     const [currentIndex, setCurrentIndex] = useState(0)
 
+    // Funktion til at gå til næste billede
     const nextSlide = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === properties.length - 1 ? 0 : prevIndex + 1
         )
     }
 
+    // Funktion til at gå til forrige billede
     const prevSlide = () => {
         setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? properties.length - 1 : prevIndex - 1
         )
     }
 
+    // Memoiseret værdi af den aktuelle ejendom
     const currentProperty = useMemo(() => {
         return properties[currentIndex] || null
     }, [properties, currentIndex])
 
+    // Memoiseret værdi af det aktuelle billedes storage ID
     const storageId = useMemo(() => {
         return currentProperty?.imageUrls[0] || ''
     }, [currentProperty])
 
+    // Hent billedets URL fra Convex
     const imageUrlResult = useQuery(api.files.getUrl, { storageId })
 
+    // Hvis der ikke er nogen ejendomme, vis en besked
     if (properties.length === 0) {
-        return <div>No properties available</div>
+        return <div>Ingen ejendomme tilgængelige</div>
     }
 
     const isLoading = imageUrlResult === undefined
@@ -59,8 +66,8 @@ export const PropertyCarousel: React.FC<{ properties: Property[] }> = ({
                         {currentProperty?.address}
                     </h3>
                     <p>
-                        {currentProperty?.type} - $
-                        {currentProperty?.price.toLocaleString()}
+                        {currentProperty?.type} -{' '}
+                        {currentProperty?.price.toLocaleString()} kr.
                     </p>
                 </div>
             </div>

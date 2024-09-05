@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/select'
 import { PropertyFormData } from '@/types'
 
+// FormField-komponenten til genbrugelig formularfelt-rendering
 export const FormField: React.FC<{
     name: keyof PropertyFormData
     label: string
@@ -45,7 +46,7 @@ export const FormField: React.FC<{
                                 >
                                     <SelectTrigger>
                                         <SelectValue
-                                            placeholder={`Select ${label.toLowerCase()}`}
+                                            placeholder={`Vælg ${label.toLowerCase()}`}
                                         />
                                     </SelectTrigger>
                                     <SelectContent>

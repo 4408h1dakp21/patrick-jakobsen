@@ -29,10 +29,12 @@ export const PropertyForm: React.FC<{
     ) => Promise<void>
     initialData?: Property
 }> = ({ onSubmit, initialData }) => {
+    // Tilstand for uploadede filer og eksisterende billeder
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
     const [existingImages, setExistingImages] = useState<string[]>([])
     const generateUploadUrl = useMutation(api.files.generateUploadUrl)
 
+    // Opsætning af formular med react-hook-form og zod validering
     const {
         control,
         handleSubmit,
@@ -43,7 +45,7 @@ export const PropertyForm: React.FC<{
             address: '',
             price: 0,
             type: '',
-            status: 'Active',
+            status: 'Aktiv',
             bedrooms: 0,
             bathrooms: 0,
             squareFootage: 0,
@@ -54,12 +56,14 @@ export const PropertyForm: React.FC<{
         },
     })
 
+    // Indlæs eksisterende billeder, hvis der er initialData
     useEffect(() => {
         if (initialData && initialData.imageUrls) {
             setExistingImages(initialData.imageUrls)
         }
     }, [initialData])
 
+    // Håndter fil-drop
     const onDrop = (acceptedFiles: File[]) => {
         setUploadedFiles((prev) => [...prev, ...acceptedFiles])
     }
@@ -68,14 +72,17 @@ export const PropertyForm: React.FC<{
         onDrop,
     })
 
+    // Fjern uploadet fil
     const removeFile = (index: number) => {
         setUploadedFiles((prev) => prev.filter((_, i) => i !== index))
     }
 
+    // Fjern eksisterende billede
     const removeExistingImage = (index: number) => {
         setExistingImages((prev) => prev.filter((_, i) => i !== index))
     }
 
+    // Håndter formular indsendelse
     const handleFormSubmit = async (data: PropertyFormData) => {
         const newStorageIds = await Promise.all(
             uploadedFiles.map(async (file) => {
@@ -101,14 +108,14 @@ export const PropertyForm: React.FC<{
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                         name="address"
-                        label="Address"
+                        label="Adresse"
                         control={control}
                         errors={errors}
                         as="input"
                     />
                     <FormField
                         name="price"
-                        label="Price"
+                        label="Pris"
                         control={control}
                         errors={errors}
                         type="number"
@@ -120,10 +127,10 @@ export const PropertyForm: React.FC<{
                         errors={errors}
                         as="select"
                         options={[
-                            { value: 'House', label: 'House' },
-                            { value: 'Apartment', label: 'Apartment' },
-                            { value: 'Condo', label: 'Condo' },
-                            { value: 'Townhouse', label: 'Townhouse' },
+                            { value: 'House', label: 'Hus' },
+                            { value: 'Apartment', label: 'Lejlighed' },
+                            { value: 'Condo', label: 'Ejerlejlighed' },
+                            { value: 'Townhouse', label: 'Rækkehus' },
                         ]}
                     />
                     <FormField
@@ -133,34 +140,34 @@ export const PropertyForm: React.FC<{
                         errors={errors}
                         as="select"
                         options={[
-                            { value: 'Active', label: 'Active' },
-                            { value: 'Pending', label: 'Pending' },
-                            { value: 'Sold', label: 'Sold' },
+                            { value: 'Active', label: 'Aktiv' },
+                            { value: 'Pending', label: 'Under behandling' },
+                            { value: 'Sold', label: 'Solgt' },
                         ]}
                     />
                     <FormField
                         name="bedrooms"
-                        label="Bedrooms"
+                        label="Soveværelser"
                         control={control}
                         errors={errors}
                         type="number"
                     />
                     <FormField
                         name="bathrooms"
-                        label="Bathrooms"
+                        label="Badeværelser"
                         control={control}
                         errors={errors}
                         type="number"
                     />
                     <FormField
                         name="squareFootage"
-                        label="Square Footage"
+                        label="Kvadratmeter"
                         control={control}
                         errors={errors}
                         type="number"
                     />
                     <div className="space-y-2">
-                        <Label>Property Tags</Label>
+                        <Label>Ejendomsmærker</Label>
                         <div className="flex space-x-4">
                             <Controller
                                 name="isNew"
@@ -176,7 +183,7 @@ export const PropertyForm: React.FC<{
                                             htmlFor="isNew"
                                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                         >
-                                            New
+                                            Ny
                                         </label>
                                     </div>
                                 )}
@@ -195,7 +202,7 @@ export const PropertyForm: React.FC<{
                                             htmlFor="isTrending"
                                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                         >
-                                            Trending
+                                            Populær
                                         </label>
                                     </div>
                                 )}
@@ -205,17 +212,17 @@ export const PropertyForm: React.FC<{
                 </div>
                 <FormField
                     name="description"
-                    label="Description"
+                    label="Beskrivelse"
                     control={control}
                     errors={errors}
                     as="textarea"
                 />
                 <div className="space-y-2">
-                    <Label>Images</Label>
+                    <Label>Billeder</Label>
                     {existingImages.length > 0 && (
                         <div className="mt-4">
                             <h4 className="text-sm font-medium">
-                                Existing Images:
+                                Eksisterende billeder:
                             </h4>
                             <ul className="mt-2 space-y-2">
                                 {existingImages.map((imageUrl, index) => (
@@ -225,7 +232,7 @@ export const PropertyForm: React.FC<{
                                     >
                                         <img
                                             src={imageUrl}
-                                            alt={`Property image ${index + 1}`}
+                                            alt={`Ejendomsbillede ${index + 1}`}
                                             className="w-16 h-16 object-cover rounded"
                                         />
                                         <Button
@@ -254,12 +261,12 @@ export const PropertyForm: React.FC<{
                             <Upload className="h-8 w-8 text-muted-foreground" />
                             {isDragActive ? (
                                 <p className="text-sm text-muted-foreground">
-                                    Drop the files here ...
+                                    Slip filerne her ...
                                 </p>
                             ) : (
                                 <p className="text-sm text-muted-foreground">
-                                    Drag 'n' drop some files here, or click to
-                                    select files
+                                    Træk og slip filer her, eller klik for at
+                                    vælge filer
                                 </p>
                             )}
                         </div>
@@ -267,7 +274,7 @@ export const PropertyForm: React.FC<{
                     {uploadedFiles.length > 0 && (
                         <div className="mt-4">
                             <h4 className="text-sm font-medium">
-                                New files to upload:
+                                Nye filer til upload:
                             </h4>
                             <ul className="mt-2 space-y-2">
                                 {uploadedFiles.map((file, index) => (
@@ -293,7 +300,7 @@ export const PropertyForm: React.FC<{
                     )}
                 </div>
                 <Button type="submit" className="w-full">
-                    Save Property
+                    Gem Ejendom
                 </Button>
             </form>
         </ScrollArea>

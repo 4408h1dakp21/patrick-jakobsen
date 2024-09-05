@@ -79,3 +79,20 @@ export const getPropertyById = query({
         return await ctx.db.get(args.id)
     },
 })
+
+export const updatePropertyStatus = mutation({
+    args: {
+        id: v.id('properties'),
+        status: v.string(),
+    },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.id, { status: args.status })
+    },
+})
+
+export const getProperties = query({
+    handler: async (ctx) => {
+        const properties = await ctx.db.query('properties').collect()
+        return properties
+    },
+})

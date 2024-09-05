@@ -20,3 +20,16 @@ export type PropertyFormData = z.infer<typeof propertySchema>
 export interface Property extends PropertyFormData {
     _id: Id<'properties'>
 }
+
+export type Contract = {
+    _id: Id<'contracts'>
+    _creationTime: number
+    status: string
+    date: string
+    contractId: string
+    property: string
+    client: string
+}
+
+// Define a separate type for the contract with propertyId
+export type ContractWithPropertyId = Contract & { propertyId: Id<'properties'> }
