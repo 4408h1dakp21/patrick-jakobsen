@@ -45,13 +45,27 @@ Formålet med dette projekt er at modernisere Alice & Bob Houses' online tilsted
 For at starte udviklingsserveren, brug en af følgende kommandoer:
 
 ```bash
+npm install
+# eller
+yarn install
+# eller
+pnpm install
+# eller
+bun install
+```
+
+```bash
 npm run dev
+npx run convex dev
 # eller
 yarn dev
+npx run convex dev
 # eller
 pnpm dev
+npx run convex dev
 # eller
 bun dev
+bunx run convex dev
 ```
 
 Åbn derefter [http://localhost:3000](http://localhost:3000) i din browser for at se hjemmesiden.
