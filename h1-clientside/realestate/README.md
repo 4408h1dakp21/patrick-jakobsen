@@ -94,27 +94,402 @@ bunx run convex dev
 -   `components/AppointmentForm.tsx`: Komponent til håndtering af fremvisningsformularen.
 -   `cms/`: Mappen indeholder filer relateret til CMS-systemet, inklusive administration af ejendomme og brugere.
 
-### JSON Datastruktur
+### Convex Schema Struktur
 
-JSON-filerne skal struktureres som følger:
+Convex Schema struktureres som følger:
 
-```json
-[
-  {
-    "id": "1",
-    "image": "path/to/image.jpg",
-    "address": "123 Hovedgade, By",
-    "square_meters": "100",
-    "price": "1.000.000",
-    "description": "Rummeligt 3-værelses hus...",
-    "coordinates": {
-      "lat": 55.6761,
-      "lng": 12.5683
-    }
-  },
-  ...
-]
+<details>
+  <summary>Clients</summary>
+  
+```typescript
+// convex/clients.ts
+import { mutation, query } from './_generated/server'
+import { v } from 'convex/values'
+
+export const addClient = mutation({
+    args: {
+        name: v.string(),
+        email: v.string(),
+        phone: v.string(),
+        message: v.string(),
+        status: v.string(),
+    },
+    handler: async (ctx, args) => {
+        const clientId = await ctx.db.insert('clients', {
+            ...args,
+            journal: [],
+        })
+        return clientId
+    },
+})
+
+export const getClients = query({
+    handler: async (ctx) => {
+        return await ctx.db.query('clients').collect()
+    },
+})
+
+export const updateClient = mutation({
+    args: {
+        id: v.id('clients'),
+        name: v.string(),
+        email: v.string(),
+        phone: v.string(),
+        status: v.string(),
+    },
+    handler: async (ctx, args) => {
+        const { id, ...updateData } = args
+        await ctx.db.patch(id, updateData)
+    },
+})
+
+export const deleteClient = mutation({
+    args: { id: v.id('clients') },
+    handler: async (ctx, args) => {
+        await ctx.db.delete(args.id)
+    },
+})
+
+export const addJournalEntry = mutation({
+    args: {
+        clientId: v.id('clients'),
+        entry: v.string(),
+        category: v.string(),
+        date: v.string(),
+    },
+    handler: async (ctx, args) => {
+        const client = await ctx.db.get(args.clientId)
+        if (!client) throw new Error('Client not found')
+
+        const newEntry = {
+            date: args.date,
+            entry: args.entry,
+            category: args.category,
+        }
+
+        await ctx.db.patch(args.clientId, {
+            journal: [...(client.journal || []), newEntry],
+        })
+    },
+})
+
 ```
+  </details>
+
+<details>
+  <summary>Contracts</summary>
+  
+```typescript
+// convex/contracts.ts
+import { mutation, query } from './_generated/server'
+import { v } from 'convex/values'
+
+export const getContracts = query({
+    handler: async (ctx) => {
+        return await ctx.db.query('contracts').collect()
+    },
+})
+
+export const createContract = mutation({
+    args: {
+        propertyId: v.id('properties'),
+        clientId: v.id('clients'),
+        status: v.string(),
+        date: v.string(),
+    },
+    handler: async (ctx, args) => {
+        const property = await ctx.db.get(args.propertyId)
+        const client = await ctx.db.get(args.clientId)
+        if (!property || !client)
+            throw new Error('Property or client not found')
+
+        const contractId = `CON-${Math.floor(1000 + Math.random() * 9000)}`
+        const contractIds = await ctx.db.insert('contracts', {
+            contractId,
+            property: property.address,
+            client: client.name,
+            status: args.status,
+            date: args.date,
+        })
+        return contractIds
+    },
+})
+
+export const deleteContract = mutation({
+    args: { id: v.id('contracts') },
+    handler: async (ctx, args) => {
+        await ctx.db.delete(args.id)
+    },
+})
+
+export const updatePropertyStatus = mutation({
+    args: { id: v.id('properties'), status: v.string() },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.id, { status: args.status })
+    },
+})
+
+```
+  </details>
+
+  
+<details>
+  <summary>Dashboard</summary>
+  
+```typescript
+import { query } from './_generated/server'
+
+export const getStats = query({
+    handler: async (ctx) => {
+        const properties = await ctx.db.query('properties').collect()
+        const clients = await ctx.db.query('clients').collect()
+        const contracts = await ctx.db.query('contracts').collect()
+
+        const now = new Date()
+        const lastMonth = new Date(
+            now.getFullYear(),
+            now.getMonth() - 1,
+            now.getDate()
+        )
+
+        const totalProperties = properties.length
+        const activeListings = properties.filter(
+            (p) => p.status === 'Active'
+        ).length
+        const newClients = clients.filter(
+            (c) => new Date(c._creationTime) > lastMonth
+        ).length
+        const contractsSigned = contracts.filter(
+            (c) => new Date(c.date) > lastMonth
+        ).length
+
+        // For demonstration purposes, we're using random changes
+        // In a real application, you'd calculate these based on historical data
+        const getRandomChange = () => Math.floor(Math.random() * 20) - 10
+
+        return {
+            totalProperties,
+            totalPropertiesChange: getRandomChange(),
+            activeListings,
+            activeListingsChange: getRandomChange(),
+            newClients,
+            newClientsChange: getRandomChange(),
+            contractsSigned,
+            contractsSignedChange: getRandomChange(),
+        }
+    },
+})
+
+export const getRecentProperties = query({
+    handler: async (ctx) => {
+        const properties = await ctx.db
+            .query('properties')
+            .order('desc')
+            .take(5)
+
+        return properties
+    },
+})
+
+```
+  </details>
+
+
+  <details>
+  <summary>File Blog Storage</summary>
+  
+```typescript
+import { mutation, query } from './_generated/server'
+import { v } from 'convex/values'
+
+export const generateUploadUrl = mutation(async (ctx) => {
+    return await ctx.storage.generateUploadUrl()
+})
+
+export const getUrl = query({
+    args: { storageId: v.string() },
+    handler: async (ctx, args) => {
+        if (!args.storageId) return null
+        return await ctx.storage.getUrl(args.storageId)
+    },
+})
+
+export const getUrls = query({
+    args: { storageIds: v.array(v.string()) },
+    handler: async (ctx, args) => {
+        const urls = await Promise.all(
+            args.storageIds.map(async (storageId) => {
+                return await ctx.storage.getUrl(storageId)
+            })
+        )
+        return urls
+    },
+})
+
+```
+  </details>
+
+
+  <details>
+  <summary>Properties</summary>
+  
+```typescript
+import { v } from 'convex/values'
+import { mutation, query } from './_generated/server'
+
+export const getProperty = query({
+    handler: async (ctx) => {
+        return await ctx.db.query('properties').collect()
+    },
+})
+
+export const addProperty = mutation({
+    args: {
+        address: v.string(),
+        bathrooms: v.number(),
+        bedrooms: v.number(),
+        description: v.string(),
+        imageUrls: v.array(v.string()),
+        price: v.number(),
+        squareFootage: v.number(),
+        status: v.string(),
+        type: v.string(),
+        isNew: v.boolean(),
+        isTrending: v.boolean(),
+    },
+    handler: async (ctx, args) => {
+        const propertyId = await ctx.db.insert('properties', {
+            address: args.address,
+            bathrooms: args.bathrooms,
+            bedrooms: args.bedrooms,
+            description: args.description,
+            imageUrls: args.imageUrls,
+            price: args.price,
+            squareFootage: args.squareFootage,
+            status: args.status,
+            type: args.type,
+            isNew: args.isNew,
+            isTrending: args.isTrending,
+        })
+        return propertyId
+    },
+})
+
+export const editProperty = mutation({
+    args: {
+        id: v.id('properties'),
+        address: v.string(),
+        bathrooms: v.number(),
+        bedrooms: v.number(),
+        description: v.string(),
+        imageUrls: v.array(v.string()),
+        price: v.number(),
+        squareFootage: v.number(),
+        status: v.string(),
+        type: v.string(),
+        isNew: v.boolean(),
+        isTrending: v.boolean(),
+    },
+    handler: async (ctx, args) => {
+        const { id, ...updates } = args
+
+        const existingProperty = await ctx.db.get(id)
+        if (!existingProperty) {
+            throw new Error(`Property with ID ${id} does not exist`)
+        }
+
+        await ctx.db.patch(id, updates)
+    },
+})
+
+export const deleteProperty = mutation({
+    args: { id: v.id('properties') },
+    handler: async (ctx, args) => {
+        await ctx.db.delete(args.id)
+    },
+})
+
+export const getPropertyById = query({
+    args: { id: v.id('properties') },
+    handler: async (ctx, args) => {
+        return await ctx.db.get(args.id)
+    },
+})
+
+export const updatePropertyStatus = mutation({
+    args: {
+        id: v.id('properties'),
+        status: v.string(),
+    },
+    handler: async (ctx, args) => {
+        await ctx.db.patch(args.id, { status: args.status })
+    },
+})
+
+export const getProperties = query({
+    handler: async (ctx) => {
+        const properties = await ctx.db.query('properties').collect()
+        return properties
+    },
+})
+
+
+```
+  </details>
+
+<details>
+    
+  <summary>Schema</summary>
+  
+```typescript
+import { defineSchema, defineTable } from 'convex/server'
+import { v } from 'convex/values'
+
+export default defineSchema({
+    clients: defineTable({
+        name: v.string(),
+        email: v.string(),
+        phone: v.string(),
+        message: v.string(),
+        status: v.string(),
+        journal: v.array(
+            v.object({
+                date: v.string(),
+                entry: v.string(),
+                category: v.string(),
+            })
+        ),
+    }),
+    contracts: defineTable({
+        contractId: v.string(),
+        property: v.string(),
+        client: v.string(),
+        status: v.string(),
+        date: v.string(),
+    }),
+    properties: defineTable({
+        address: v.string(),
+        bathrooms: v.number(),
+        bedrooms: v.number(),
+        description: v.string(),
+        imageUrls: v.array(v.string()),
+        price: v.number(),
+        squareFootage: v.number(),
+        status: v.string(),
+        type: v.string(),
+        isNew: v.boolean(),
+        isTrending: v.boolean(),
+    }),
+})
+
+```
+  </details>
+
+
+
+
+
+
 
 ### Clerk Auth Integration
 
