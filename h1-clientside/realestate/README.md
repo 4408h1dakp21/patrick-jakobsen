@@ -40,9 +40,24 @@ Formålet med dette projekt er at modernisere Alice & Bob Houses' online tilsted
 -   **Sikkerhedsforanstaltninger**: Ud over Clerk Auth sikrer websiden mod almindelige webtrusler som XSS (Cross-Site Scripting) og CSRF (Cross-Site Request Forgery).
 -   **Performanceoptimering**: Hjemmesiden anvender minificerede filer og lazy loading af billeder for at sikre hurtig indlæsningstid og optimal ydeevne.
 
-## Kom i Gang
+## Kom godt i gang
 
-For at starte udviklingsserveren, brug en af følgende kommandoer:
+For at komme i gang med udviklingen, er det første skridt at sikre, at du har Node.js installeret. Du kan nemt kontrollere dette ved at åbne din terminal og køre følgende kommando:
+
+```bash
+node -v
+```
+
+Dernæst bør du sikre, at npm (Node Package Manager) er installeret. npm følger som standard med Node.js, men for at være på den sikre side kan du tjekke versionen med følgende kommando:
+
+```bash
+npm -v
+```
+
+Hvis Node.js ikke er installeret, kan du nemt downloade det via dette link:  
+[Download NodeJS](https://nodejs.org/en)
+
+Når Node.js er korrekt installeret, er du klar til at begynde. Følg blot kommandoerne nedenfor for at starte udviklingsserveren:
 
 ```bash
 npm install
